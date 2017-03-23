@@ -1,0 +1,178 @@
+<?xml version="1.0" ?>
+<localization lang="English">
+  <!-- Common strings -->
+  <textNode stringId="DialogOK" text="OK"/>
+  <textNode stringId="DialogDelete" text="Delete"/>
+  <textNode stringId="DialogCancel" text="Cancel"/>
+
+  <!-- Property dialog -->
+  <textNode stringId="PropertiesDialogTitle" text="Properties" />
+
+  <!-- Calc option dialog -->
+  <textNode stringId="CalcOptionDialogTitle" text="Calculation Options"/>
+  <textNode stringId="CalcOptionDlgItemLog" text="Create a logfile" />
+  <textNode stringId="CalcOptionDialogGrpOptions" text="Calculation options:" />
+  <textNode stringId="CalcOptionDialogRBThFirstOrder" text="Calculation of Theory first order" />
+  <textNode stringId="CalcOptionDialogRBMAxLoad" text="Calculation of max. plastic loading" />
+  <textNode stringId="CalcOptionDialogGrpLog" text="Options:" />
+  <textNode stringId="CalcOptionDialogErrorSection" text="It is only possible to calculate loadings for separate sections!!" />
+
+  <!-- Calc dialog -->
+  <textNode stringId="CalcDialogTitle" text="Start calculation"/>
+  <textNode stringId="CalcDialogOptionsButton" text="Options"/>
+  <textNode stringId="CalcDialogCloseButton" text="Close"/>
+  <textNode stringId="CalcDialog_CalcState" text="Status of calculation:"/>
+  <textNode stringId="CalcDialog_Calc" text="Parameter:"/>
+  <textNode stringId="CalcDialog_Process" text="Current process:"/>
+  <textNode stringId="CalcDialog_Progess" text="Progress:"/>
+  <textNode stringId="CalcDialog_BandWidth" text="Band width"/>
+  <textNode stringId="CalcDialog_MaxDOF" text="Max. degree of freedoms"/>
+  <textNode stringId="CalcDialog_Nodes" text="Nodes"/>
+  <textNode stringId="CalcDialog_Elements" text="Elements"/>
+  <textNode stringId="CalcDialog_Memory" text="Memory ( in KB )"/>
+
+  <!-- Coordinate work dialog -->
+  <textNode stringId="CoordWorkDialogTitle" text="Manage coordinates" />
+  <textNode stringId="CoordWorkDlg_XComp" text="X component" />
+  <textNode stringId="CoordWorkDlg_YComp" text="Y component" />
+  <textNode stringId="CoordWorkDlg_BoundaryGrp" text="Manage boundary conditions" />
+  <textNode stringId="CoordWorkDlg_BoundaryX" text="Bound in X direction" />
+  <textNode stringId="CoordWorkDlg_BoundaryY" text="Bound in Y direction" />
+  <textNode stringId="CoordWorkDlg_BoundaryZ" text="Bound rotation around x" />
+
+  <!-- Element work dialog -->
+  <textNode stringId="EleWorkDlg_NodeGroup" text="Select node 1 and 2:" />
+  <textNode stringId="EleWorkDlg_EleNode1" text="Node 1" />
+  <textNode stringId="EleWorkDlg_EleNode2" text="Node 2" />
+  <textNode stringId="EleWorkDlg_MeshGroup" text="Mesh-Options:" />
+  <textNode stringId="EleWorkDlg_MeshIntervall" text="Number of elements:" />
+  <textNode stringId="EleWorkDlg_MaterialGroup" text="Select a material:" />
+  <textNode stringId="EleWorkDlg_EleTypeGroup" text="Select kind of element:" />
+  <textNode stringId="EleWorkDlg_BarEle" text="Bar element (2D)" />
+  <textNode stringId="EleWorkDlg_BeamEle" text="Beam element (2D)" />
+  <textNode stringId="EleWorkDlg_BoundaryOption1" text="No joints, hard coupled ( 1|1|1 )" />
+  <textNode stringId="EleWorkDlg_BoundaryOption2" text="Joint left ( 1|1|0 )" />
+  <textNode stringId="EleWorkDlg_BoundaryOption3" text="Joint right ( 1|1|0 )" />
+
+  <!-- Delete material dialog -->
+  <textNode stringId="EleDelMatDlg_Title" text="Delete Material" />
+  <textNode stringId="EleDelMatDlg_SelectMat" text="Select a material:" />
+  
+  <!-- Pointload dialog -->
+  <textNode stringId="PointLoadDlg_Title" text="Manage point loads:" />
+  <textNode stringId="PointLoadDlg_SelectDirGroup" text="Select direction:" />
+  <textNode stringId="PointLoadDlg_ValueGroup" text="Value [kN]:" />
+  <textNode stringId="PointLoadDlg_NodeGroup" text="Select node:" />
+  <textNode stringId="PointLoadDlg_LoadX" text="Load in X [kN]" />
+  <textNode stringId="PointLoadDlg_LoadY" text="Load in Y [kN]" />
+  <textNode stringId="PointLoadDlg_LoadM" text="Moment around X [ KN/m ]" />
+
+  <!-- Manage material dialog -->
+  <textNode stringId="MaterialDlg_Title" text="Manage materials:" />
+  <textNode stringId="MaterialDlg_ElasticGroup" text="Elastic components:" />
+  <textNode stringId="MaterialDlg_MaterialName" text="Name" />
+  <textNode stringId="MaterialDlg_E_Module" text="E-Module" />
+  <textNode stringId="MaterialDlg_Area" text="Area" />
+  <textNode stringId="MaterialDlg_Iy" text="Static moment Iy" />
+  <textNode stringId="MaterialDlg_PlasticGroup" text="Plastic components:" />
+  <textNode stringId="MaterialDlg_PlasticMoment" text="M plastic" />
+
+  <!-- Structure info dialog -->
+  <textNode stringId="StructureInfoDlg_Title" text="Structure infos:" />
+  <textNode stringId="StructureInfoDlg_NoCoords" text="Number of nodes:" />
+  <textNode stringId="StructureInfoDlg_NoMaterials" text="Number of materials:" />
+  <textNode stringId="StructureInfoDlg_NoElements" text="Number of elements:" />
+  <textNode stringId="StructureInfoDlg_NoLoads" text="Number of point loads:" />
+
+  <!-- About dialog -->
+  <textNode stringId="AboutDlg_Title" text="Traglast for Win32" />
+
+  <!-- Menus -->
+  <!-- File -->
+  <textNode stringId="Menu_File_Title" text="File" />
+  <textNode stringId="Menu_File_New" text="New" />
+  <textNode stringId="Menu_File_Open" text="Open" />
+  <textNode stringId="Menu_File_Save" text="Save" />
+  <textNode stringId="Menu_File_SaveAs" text="Save as" />
+  <textNode stringId="Menu_File_Export" text="Export" />
+  <textNode stringId="Menu_File_ExportAscii" text="ASCII" />
+  <textNode stringId="Menu_File_Print" text="Print" />
+  <textNode stringId="Menu_File_Quit" text="Quit" />
+
+  <!-- Edit -->
+  <textNode stringId="Menu_Edit_Title" text="Edit" />
+  <textNode stringId="Menu_Edit_Undo" text="Undo" />
+  <textNode stringId="Menu_Edit_Cut" text="Cut" />
+  <textNode stringId="Menu_Edit_Copy" text="Copy" />
+  <textNode stringId="Menu_Edit_Paste" text="Paste" />
+
+  <!-- View -->
+  <textNode stringId="Menu_View_Title" text="View" />
+  <textNode stringId="Menu_View_ViewBar" text="Symbolleiste" />
+  <textNode stringId="Menu_View_StatusBar" text="Statusleiste" />
+  <textNode stringId="Menu_View_Zoom" text="Zoom" />
+  <textNode stringId="Menu_View_ZoomAll" text="Zoom all" />
+  <textNode stringId="Menu_View_ZoomIn" text="Zoom in" />
+  <textNode stringId="Menu_View_ZoomOut" text="Zoom out" />
+  <textNode stringId="Menu_View_View" text="View" />
+  <textNode stringId="Menu_View_Properties" text="Properties" />
+
+  <!-- Strucure -->
+  <textNode stringId="Menu_Structure_Title" text="Structure" />
+  <textNode stringId="Menu_Structure_Coord" text="Nodes" />
+  <textNode stringId="Menu_Structure_Coord_Numeric" text="Nodes" />
+  <textNode stringId="Menu_Structure_Material" text="Materials" />
+  <textNode stringId="Menu_Structure_Material_Input" text="Input" />
+  <textNode stringId="Menu_Structure_Material_Delete" text="Delete" />
+  <textNode stringId="Menu_Structure_Elemnts" text="Elements" />
+  <textNode stringId="Menu_Structure_Elemnts_Numeric" text="Numeric" />
+  <textNode stringId="Menu_Structure_Loads" text="Loads" />
+  <textNode stringId="Menu_Structure_Loads_PointLoads" text="PointLoads" />
+  <textNode stringId="Menu_Structure_Loads_LineLoads" text="LineLoads" />
+  <textNode stringId="Menu_Structure_Info" text="Info" />
+
+  <!-- Computation -->
+  <textNode stringId="Menu_Computation_Title" text="Computation" />
+  <textNode stringId="Menu_Computation_StartCalc" text="Start calculation" />
+  <textNode stringId="Menu_Computation_ResultMenu" text="Results" />
+  <textNode stringId="Menu_Computation_ResultDeform" text="Deformation" />
+  <textNode stringId="Menu_Computation_ResultMoment" text="Moment" />
+  <textNode stringId="Menu_Computation_ResultShearForce" text="Shear force" />
+  <textNode stringId="Menu_Computation_ResultNormalForce" text="Normal force" />
+  <textNode stringId="Menu_Computation_DelResults" text="Delete results" />
+
+  <!-- Help -->
+  <textNode stringId="Menu_Help_Title" text="?" />
+  <textNode stringId="Menu_Help_Info" text="Program info" />
+  
+  <!-- Error texts -->
+  <textNode stringId="ErrMsg_ErrOpnFile" text="Error while opening file." />
+  <textNode stringId="ErrMsg_ErrSavFile" text="Error while saving file." />
+  <textNode stringId="ErrMsg_NoRes" text="No result calculated." />
+  <textNode stringId="StatusTxt_NoCalcOption" text="Please select a calculation mode in the Options-Dialog." />
+  <textNode stringId="ErrMsg_StrucIncompl" text="Structure in incomplete." />
+  <textNode stringId="ErrMsg_ErrCuttingForce" text="Error while calculating cutting forces." />
+  <textNode stringId="ErrMsg_ErrCalcLimitForce" text="Error while calculating plastic limit force." />
+
+  <!-- Message texts -->
+  <textNode stringId="Msg_LimitLoad" text="The limited load is" />
+  <textNode stringId="Msg_CompTime" text="Time od computation:" />
+  <textNode stringId="Msg_SaveRes" text="Do you want to save the results?" />
+  <textNode stringId="Msg_TraglastIncLoad" text="Load incremented:" />
+  <textNode stringId="Msg_TraglastMaxMoment" text="Maximal moment:" />
+  <textNode stringId="Msg_TraglastMaxPlast" text="Plastic moment limit:" />
+  <textNode stringId="Msg_RemoveCond" text="Removing boundary condition at node :" />
+  <textNode stringId="Msg_AddJoint" text="Add joint at node :" />
+  <textNode stringId="Msg_NumIt" text="Iterration step :" />
+  
+  <!-- Tool bars -->
+  <textNode stringId="Toolbar_Tools" text="Tools" />
+  <textNode stringId="Toolbar_Nodes" text="Nodes" />
+  <textNode stringId="Toolbar_Loads" text="Loads" />
+  <textNode stringId="Toolbar_Results" text="Results" />
+  
+  <!-- Status texts -->
+  <textNode stringId="StatusTxt_Nodes" text="Nodes" />
+  <textNode stringId="StatusTxt_Elements" text="Elements" />
+  <textNode stringId="StatusTxt_Cond" text="Cond. Nodes" />
+</localization>

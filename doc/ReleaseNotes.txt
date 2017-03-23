@@ -1,0 +1,21 @@
+                   WinTraglast
+                  =============
+
+ Release 0.3:
+ ------------
+ - Feature : TinyXML added as thirnd party library.
+ 
+ Release 0.2:
+ ------------
+- Feature : Documentation in HTML-Format added.
+- Feature : New logging service.
+- Feature : Material interface provides unique names per material definition.
+- Bugfix  : Invalid visualization of loads fixed.
+- Bugfix  : Invalid visualization of zero cutting forces fixed.
+- Bugfix  : Invalid load of models fixed.
+- Bugfix  : Leak in NodeStack fixed.
+- Bugfix  : Leak in ElementStack fixed.
+
+ Release 0.1:
+ ------------
+ - Initial version.

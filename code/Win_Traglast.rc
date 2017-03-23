@@ -1,0 +1,785 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Deutsch (Deutschland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 7, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Win_Traglast.rc2""  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen\r\n"
+    "#include ""l.deu\\afxres.rc""          // Standardkomponenten\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Win_Traglast.ico"
+IDI_ICON1               ICON                    "res\\icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDR_KOORDBAR            BITMAP                  "res\\koordbar.bmp"
+IDR_FORCEBAR            BITMAP                  "res\\forcebar.bmp"
+IDR_RESULTBAR           BITMAP                  "res\\calcbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_BUTTON32800
+    BUTTON      ID_OPEN
+    SEPARATOR
+    BUTTON      ID_BUTTON32780
+    BUTTON      ID_BUTTON32779
+    BUTTON      ID_BUTTON32778
+    BUTTON      ID_EDIT_COPY
+    SEPARATOR
+    BUTTON      ID_BUTTON32793
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_KOORDBAR TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_BUTTON32787
+    BUTTON      ID_BUTTON32788
+    BUTTON      ID_BUTTON32789
+END
+
+IDR_FORCEBAR TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_BUTTON32790
+    BUTTON      ID_BUTTON32798
+    BUTTON      ID_BUTTON32816
+END
+
+IDR_RESULTBAR TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_BUTTONCALC
+    SEPARATOR
+    BUTTON      ID_BUTTON32799
+    BUTTON      ID_BUTTONMOMENT
+    BUTTON      ID_BUTTONQUER
+    BUTTON      ID_BUTTONLAENGS
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&Datei"
+    BEGIN
+        MENUITEM "&Neu",                        ID_DATEI_NEU
+        MENUITEM "&Öffnen",                     ID_DATEI_FFNEN
+        MENUITEM "&Speichern",                  ID_DATEI_SPEICHERN
+        MENUITEM "Speichern &unter",            ID_DATEI_SPEICHERNUNTER
+        POPUP "Export"
+        BEGIN
+            MENUITEM "ASCII",                       ID_DATEI_EXPORT_ASCII
+        END
+        MENUITEM "&Drucken",                    ID_DATEI_DRUCKEN
+        MENUITEM "&Beenden",                    ID_APP_EXIT
+    END
+    POPUP "&Bearbeiten"
+    BEGIN
+        MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "&Ausschneiden\tStrg+X",       ID_EDIT_CUT
+        MENUITEM "&Kopieren\tStrg+C",           ID_EDIT_COPY
+        MENUITEM "E&infügen\tStrg+V",           ID_EDIT_PASTE
+    END
+    POPUP "&Ansicht"
+    BEGIN
+        MENUITEM "&Symbolleiste",               ID_VIEW_TOOLBAR
+        MENUITEM "S&tatusleiste",               ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        POPUP "Zoom"
+        BEGIN
+            MENUITEM "Zoom alles",                  ID_ANSICHT_ZOOM_ZOOMALLES
+            MENUITEM "Zoom in",                     ID_ANSICHT_ZOOM_ZOOMIN
+            MENUITEM "Zoom out",                    ID_ANSICHT_ZOOM_ZOOMOUT
+        END
+        MENUITEM "Ansicht",                     ID_ANSICHT_ANSICHT
+        MENUITEM "Eigenschaften",               ID_ANSICHT_EINSTELLUNGEN
+    END
+    POPUP "&Struktur"
+    BEGIN
+        POPUP "Nodes"
+        BEGIN
+            MENUITEM "&Koordinaten erzeugen",       ID_TRAGWERK_KOORDINATENBEARBEITEN
+        END
+        POPUP "&Material"
+        BEGIN
+            MENUITEM "Material erzeugen",           ID_TRAGWERK_MATERIALBEARBEITEN_MATERIALERZEUGEN
+            MENUITEM "Material löschen",            ID_TRAGWERK_MATERIALBEARBEITEN_MATERIALLSCHEN
+        END
+        POPUP "Elements"
+        BEGIN
+            MENUITEM "&Numerisch",                  ID_TRAGWERK_ELEMENTEBEARBEITEN_NUMERISCH
+        END
+        POPUP "Lasten"
+        BEGIN
+            MENUITEM "Einzeleinwirkungen erzeugen", ID_TRAGWERK_LASTENBEARBEITEN_EINZELLASTENBEARBEITEN
+            MENUITEM "Linieneinwirkung erzeugen",   ID_TRAGWERK_LASTENBEARBEITEN_LINIENEINWIRKUNGERZEUGEN
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Info",                        ID_TRAGWERK_TRAGWERKSINFO
+    END
+    POPUP "Berechnung"
+    BEGIN
+        MENUITEM "&Berechnung starten",         ID_BERECHNUNG_BERECHNUNGSTARTEN
+        MENUITEM SEPARATOR
+        POPUP "E&rgebnisse "
+        BEGIN
+            MENUITEM "&Durchbiegung",               ID_BERECHNUNG_ERGEBNISSE_DURCHBIEGUNG, GRAYED
+            MENUITEM "Moment",                      ID_BERECHNUNG_ERGEBNISSE_MOMENT, GRAYED
+            MENUITEM "Querkraft",                   ID_BERECHNUNG_ERGEBNISSE_QUERKRAFT, GRAYED
+            MENUITEM "Längskraft",                  ID_BERECHNUNG_ERGEBNISSE_LNGSKRAFT, GRAYED
+        END
+        MENUITEM "Ergebnisse löschen",          ID_BERECHNUNG_ERGEBNISSELSCHEN
+    END
+    POPUP "&?"
+    BEGIN
+        MENUITEM "Inf&o über Win_Traglast...",  ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_DATEI_FFNEN,         VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 208, 91
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Info über Win_Traglast"
+FONT 10, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,24,15,20,20,0,WS_EX_DLGMODALFRAME
+    CTEXT           "Win_Traglast Version 0.3",IDC_STATIC,57,12,91,8,SS_NOPREFIX
+    CTEXT           "Copyright (C) 2001 by Kim Kulling",IDC_STATIC,53,24,119,8
+    DEFPUSHBUTTON   "OK",IDOK,72,70,50,14,WS_GROUP
+END
+
+IDD_KOORDWORK DIALOGEX 0, 0, 237, 101
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Koordinaten bearbeiten"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_EDIT1,7,7,71,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "X-Koordinate",IDC_XCOMP,81,10,42,8
+    EDITTEXT        IDC_EDIT2,7,24,71,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "Y-Koordinate",IDC_YCOMP,81,27,42,8
+    GROUPBOX        "Randbedingungen bearbeiten",IDC_BOUNDARY_GRP,7,41,107,53
+    CONTROL         "In X-Richtung gehalten",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,55,89,10
+    CONTROL         "In Y-Richtung gehalten",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,67,89,10
+    CONTROL         "Um X gehalten",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,78,101,10
+    DEFPUSHBUTTON   "OK",IDOK,174,7,50,14
+    DEFPUSHBUTTON   "Abbrechen",IDCANCEL,174,43,50,14
+    DEFPUSHBUTTON   "N E X T",IDC_BUTTON1,174,24,50,14,WS_DISABLED
+END
+
+IDD_MATERIALWORK DIALOGEX 0, 0, 223, 149
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Materialien bearbeiten"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Werte für elastische Berechnung:",IDC_ELASTICGRP,7,7,154,98,0,WS_EX_DLGMODALFRAME
+    EDITTEXT        IDC_MATNAME,18,24,68,14,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,17,43,69,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "Name",IDC_MATERTIALNAME,92,27,60,12
+    LTEXT           "E-Modul",IDC_MATERIALEMOD,91,46,27,8
+    EDITTEXT        IDC_EDIT2,17,60,69,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "Querschnittsfläche",IDC_MATERIALAREA,91,63,60,8
+    EDITTEXT        IDC_EDIT3,17,79,69,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "Trägheitsmoment Iy",IDC_STATICMOMENTY,90,82,62,8
+    GROUPBOX        "Werte für plastische Berechnung (optional):",IDC_PLASTICGRP,7,107,154,35,0,WS_EX_DLGMODALFRAME
+    EDITTEXT        IDC_PLMOMENT,17,116,69,14,ES_CENTER | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,163,7,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,163,24,50,14
+    LTEXT           "Mplastisch",IDC_MPLASTIC,93,120,34,8
+END
+
+IDD_TRAGWERKINFO DIALOGEX 0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Informationen über das Tragwerk"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,129,24,50,14
+    LTEXT           "Anzahl der Koordinaten:",IDC_NOCOORDS,7,13,82,8
+    LTEXT           "0",IDC_KOORDANZ,89,13,35,8
+    LTEXT           "Anzahl der Materialien:",IDC_NOMATERIALS,7,29,82,8
+    LTEXT           "0",IDC_MATANZ,89,30,32,8
+    LTEXT           "Anzahl der Elemente",IDC_NOELEMENTS,8,46,75,8
+    LTEXT           "0",IDC_ELEANZ,89,46,35,8
+    LTEXT           "Anzahl der Lasten",IDC_NOLOADS,8,63,74,8
+    LTEXT           "0",IDC_LASTANZ,89,64,35,8
+END
+
+IDD_ELEMENTWORK DIALOGEX 0, 0, 214, 258
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Elemente bearbeiten"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Knotenanfang- und Ende:",IDC_NODEGROUP,7,7,144,49
+    LTEXT           "Knoten 1:",IDC_ELENODE1,20,19,32,8
+    EDITTEXT        IDC_EDIT2,16,34,40,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Knoten 2:",IDC_ELENODE2,73,20,32,8
+    EDITTEXT        IDC_EDIT3,68,34,40,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Vernetzungs-Optionen:",IDC_MESHGROUP,7,59,144,45
+    LTEXT           "Berechnungsintervalle:",IDC_MESHOPTION_DESC,20,73,73,8
+    EDITTEXT        IDC_EDIT5,20,87,40,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    LISTBOX         IDC_LIST1,16,117,130,33,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Material wählen:",IDC_MATERIALGROUP,7,106,144,49
+    GROUPBOX        "Art des Elementes wählen:",IDC_ELEMENTTYPEGROUP,7,159,144,40
+    CONTROL         "Fachwerk-Stab (2D)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,9,170,79,10
+    CONTROL         "BiegeBalken (2D)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,9,182,101,10
+    GROUPBOX        "Anschlußarten des Elementes:",IDC_STATIC,7,202,144,49
+    LISTBOX         IDC_LIST3,16,214,130,31,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,157,7,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,157,42,50,14
+    PUSHBUTTON      "Selektieren",IDC_SELECT,157,24,50,14,WS_DISABLED
+    LTEXT           "test",IDC_STATIC1,169,87,12,8
+END
+
+IDD_EINZELEINWIRKUNG DIALOGEX 0, 0, 235, 98
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Knoten wählen:"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Richtung wählen",IDC_SELECTDIR_GRP,7,3,99,48
+    CONTROL         "Kraft in X [kN]",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,12,15,60,10
+    CONTROL         "Karft in Y [kN]",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,26,60,10
+    CONTROL         "Moment um Y [kNm]",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,12,37,80,10
+    GROUPBOX        "Wert [kN]",IDC_VALUEGRP,109,3,64,48
+    EDITTEXT        IDC_EDIT1,116,28,49,14,ES_CENTER | ES_AUTOHSCROLL
+    GROUPBOX        "Knoten wählen",IDC_NODESELECTGRP,7,56,88,35
+    EDITTEXT        IDC_EDIT2,23,71,40,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,178,25,50,14
+    PUSHBUTTON      "Selektieren",IDC_BUTTON3,178,46,50,14,WS_DISABLED
+END
+
+IDD_CALCULATE DIALOGEX 0, 0, 262, 142
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Berechnung starten"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Berechnung starten",IDOK,10,6,80,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,10,24,79,15
+    PUSHBUTTON      "Optionen",IDC_BUTTONOPTIONS,10,47,80,14
+    PUSHBUTTON      "Schließen",IDC_BUTTONCLOSE,10,70,80,14
+    GROUPBOX        "Berechnungs-Status:",IDC_FORTSCHRITT,100,5,155,130,0,WS_EX_DLGMODALFRAME
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,105,28,144,14,WS_EX_STATICEDGE
+    LTEXT           "Fortschritt",IDC_CALCPROGRESS,110,18,32,8
+    GROUPBOX        "Parameter:",IDC_BERECHNUNG,105,53,144,76
+    LTEXT           "Bandbreite:",IDC_BANDWIDTH,116,74,37,8
+    CTEXT           "0",IDC_BANDBREITE,206,74,34,8
+    LTEXT           "Maximaler Freiheitsgrad:",IDC_MAXDOF,116,84,90,8
+    CTEXT           "0",IDC_FG,206,84,34,8
+    LTEXT           "Knoten:",IDC_NODES,116,95,26,8
+    LTEXT           "Elemente:",IDC_ELEMENTS,115,106,32,8
+    LTEXT           "Memory (in KB): ",IDC_MEMORY,115,118,52,8
+    CTEXT           "0",IDC_KNANZ,206,96,34,8
+    CTEXT           "0",IDC_ELEANZ,206,107,34,8
+    CTEXT           "0",IDC_MEM,206,118,34,8
+    LTEXT           "Momentaner Prozess:",IDC_CURRENTPROCESS,116,62,69,8
+    LTEXT           "",IDC_PROCESS,207,61,40,8
+END
+
+IDD_EIGENSCHAFTEN DIALOGEX 0, 0, 187, 105
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Eigenschaften"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,130,7,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,130,24,50,14
+    COMBOBOX        IDC_COMBO1,22,19,81,46,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_STRECKENEINWIRKUNG DIALOG  0, 0, 265, 100
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Streckeneinwirkungen erzeugen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Richtung wählen",IDC_STATIC,7,3,88,48
+    CONTROL         "Kraft in X [kN]",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,12,15,60,10
+    CONTROL         "Karft in Y [kN]",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,26,60,10
+    CONTROL         "Moment um Y [kNm]",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,12,37,80,10
+    GROUPBOX        "Wert [kN]",IDC_STATIC,98,3,98,48
+    EDITTEXT        IDC_EDIT1,107,28,57,14,ES_CENTER | ES_AUTOHSCROLL
+    GROUPBOX        "Elementnummer:",IDC_STATIC,7,57,88,36
+    EDITTEXT        IDC_EDIT2,20,74,64,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,203,7,55,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,203,23,55,14
+END
+
+IDD_CALCOPTION DIALOGEX 0, 0, 242, 90
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Berechnungsoptionen"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,185,7,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,185,23,50,14
+    GROUPBOX        "Berechnung-Variante:",IDC_DLG_CALCOPTION_OPTIONS,7,7,172,42,0,WS_EX_DLGMODALFRAME
+    CONTROL         "Berechnung nach Th. 1.er Ordnung",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,14,20,126,10
+    CONTROL         "Berechnung nach Traglastverfahren",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,14,32,130,10
+    GROUPBOX        "Berechnungsoptionen:",IDC_DLG_CALCOPTION_LOG,7,54,172,29,0,WS_EX_DLGMODALFRAME
+    CONTROL         "Log-File erzeugen",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,69,72,10
+END
+
+IDD_DELETEMAT DIALOGEX 0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Material löschen"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Löschen",IDOK,129,7,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,129,24,50,14
+    GROUPBOX        "Material wählen",IDC_SELECLMATERIALGRP,7,7,116,81
+    LISTBOX         IDC_LIST1,16,18,92,62,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704b0"
+        BEGIN
+            VALUE "Comments", "FEM-Anwendung für 2D-Probleme"
+            VALUE "FileDescription", "MFC-Anwendung Win_Traglast"
+            VALUE "FileVersion", "1, 0, 0, 0"
+            VALUE "InternalName", "Win_Traglast"
+            VALUE "LegalCopyright", "Copyright (C) 2001"
+            VALUE "OriginalFilename", "Win_Traglast.EXE"
+            VALUE "ProductName", "Anwendung für die Statik, Win_Traglast"
+            VALUE "ProductVersion", "1, 0, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 84
+    END
+
+    IDD_KOORDWORK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 224
+        VERTGUIDE, 10
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 94
+        HORZGUIDE, 21
+        HORZGUIDE, 24
+        HORZGUIDE, 38
+        HORZGUIDE, 41
+    END
+
+    IDD_MATERIALWORK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        VERTGUIDE, 17
+        VERTGUIDE, 86
+        VERTGUIDE, 161
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 142
+        HORZGUIDE, 21
+        HORZGUIDE, 24
+        HORZGUIDE, 38
+        HORZGUIDE, 43
+        HORZGUIDE, 57
+        HORZGUIDE, 83
+        HORZGUIDE, 116
+    END
+
+    IDD_TRAGWERKINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 89
+        VERTGUIDE, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+        HORZGUIDE, 21
+        HORZGUIDE, 38
+        HORZGUIDE, 55
+        HORZGUIDE, 72
+    END
+
+    IDD_ELEMENTWORK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 207
+        VERTGUIDE, 16
+        VERTGUIDE, 20
+        VERTGUIDE, 60
+        VERTGUIDE, 146
+        VERTGUIDE, 151
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+        HORZGUIDE, 21
+        HORZGUIDE, 24
+        HORZGUIDE, 38
+        HORZGUIDE, 42
+        HORZGUIDE, 56
+        HORZGUIDE, 62
+        HORZGUIDE, 72
+        HORZGUIDE, 87
+    END
+
+    IDD_EINZELEINWIRKUNG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        VERTGUIDE, 95
+        VERTGUIDE, 98
+        VERTGUIDE, 162
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+        HORZGUIDE, 51
+        HORZGUIDE, 56
+        HORZGUIDE, 60
+    END
+
+    IDD_CALCULATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        VERTGUIDE, 10
+        VERTGUIDE, 90
+        VERTGUIDE, 100
+        VERTGUIDE, 105
+        VERTGUIDE, 111
+        VERTGUIDE, 206
+        VERTGUIDE, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 135
+        HORZGUIDE, 20
+        HORZGUIDE, 24
+        HORZGUIDE, 39
+        HORZGUIDE, 48
+        HORZGUIDE, 61
+        HORZGUIDE, 70
+    END
+
+    IDD_EIGENSCHAFTEN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
+    END
+
+    IDD_STRECKENEINWIRKUNG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        VERTGUIDE, 20
+        VERTGUIDE, 84
+        VERTGUIDE, 95
+        VERTGUIDE, 98
+        VERTGUIDE, 106
+        VERTGUIDE, 164
+        VERTGUIDE, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+        HORZGUIDE, 62
+        HORZGUIDE, 74
+        HORZGUIDE, 93
+    END
+
+    IDD_CALCOPTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        VERTGUIDE, 14
+        VERTGUIDE, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+        HORZGUIDE, 49
+        HORZGUIDE, 54
+    END
+
+    IDD_DELETEMAT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "Win_Traglast"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Win_Traglast"
+    AFX_IDS_IDLEMESSAGE     "Bereit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "ER"
+    ID_INDICATOR_CAPS       "UF"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "RF"
+    ID_INDICATOR_OVR        "ÜB"
+    ID_INDICATOR_REC        "MA"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Zeigt Programm-Informationen, Versionsnummer und Copyright an.\nInfo"
+    ID_APP_EXIT             "Verläßt die Anwendung; fragt, ob Dokumente gespeichert werden sollen.\nBeenden"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Wechselt zum nächsten Fensterausschnitt.\nNächster Ausschnitt"
+    ID_PREV_PANE            "Springt zum vorherigen Fensterausschnitt zurück.\nVorheriger Ausschnitt"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Teilt das aktive Fenster in Ausschnitte.\nTeilen"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Löscht die Markierung.\nLöschen"
+    ID_EDIT_CLEAR_ALL       "Löscht alles.\nAlles löschen"
+    ID_EDIT_COPY            "Kopiert die Markierung und überträgt sie in die Zwischenablage.\nKopieren"
+    ID_EDIT_CUT             "Öffnet ein Tragwerk aus einer Datei"
+    ID_EDIT_FIND            "Sucht den angegebenen Text.\nSuchen"
+    ID_EDIT_PASTE           "Fügt den Inhalt der Zwischenablage ein.\nEinfügen"
+    ID_EDIT_REPEAT          "Wiederholt die letzte Aktion.\nWiederholen"
+    ID_EDIT_REPLACE         "Ersetzt einen bestimmten Text durch einen anderen.\nErsetzen"
+    ID_EDIT_SELECT_ALL      "Markiert das gesamte Dokument.\nAlles markieren"
+    ID_EDIT_UNDO            "Macht die letzte Aktion rückgängig.\nRückgängig"
+    ID_EDIT_REDO            "Wiederholt die vorher rückgängig gemachte Aktion.\nWiederherstellen"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Blendet die Symbolleiste ein oder aus.\nSymbolleiste ein-/ausschalten"
+    ID_VIEW_STATUS_BAR      "Blendet die Statusleiste ein oder aus.\nStatusleiste ein-/ausschalten"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Ändert die Fenstergröße."
+    AFX_IDS_SCMOVE          "Ändert die Position des Fensters."
+    AFX_IDS_SCMINIMIZE      "Verkleinert das Fenster zu einem Symbol."
+    AFX_IDS_SCMAXIMIZE      "Vergrößert das Fenster zu voller Größe."
+    AFX_IDS_SCNEXTWINDOW    "Wechselt zum nächsten Dokumentfenster."
+    AFX_IDS_SCPREVWINDOW    "Wechselt zum vorherigen Dokumentfenster."
+    AFX_IDS_SCCLOSE         "Schließt das aktive Fenster und fordert zur Dokumentspeicherung auf."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Stellt das Fenster in seiner normalen Größe wieder her."
+    AFX_IDS_SCTASKLIST      "Aktiviert die Task-Liste."
+    IDS_XPOS                "XXXXXXX"
+    IDS_YPOS                "YYYYYYY"
+    IDS_ANZNODE             "XXXXXXXXXXX"
+    IDS_ANZELE              "XXXXXXXXXXX"
+    IDS_ANZLAGER            "XXXXXXXXXXXX"
+    IDS_COMMAND             "XXXXXXXXXXX"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_BUTTON32778          "Das gesamte Tragwerk wird auf dem Bildschirm gezeigt."
+    ID_BUTTON32779          "Vergrößert das Bild des Tragwerks."
+    ID_BUTTON32780          "Verkleinert das Bild des Tragwerks."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_BUTTON32787          "Fügt einen neuen Knoten hinzu"
+    ID_BUTTON32788          "Fügt neue Elemente zum Tragwerk hinzu"
+    ID_BUTTON32789          "Einen neuen Querschnitt eingeben"
+    ID_BUTTON32790          "Knotenlast eingeben"
+    ID_BUTTON32793          "Verschiebt den abgebildeten Bereich"
+    ID_BERECHNUNG_ERGEBNISSE_MOMENT "Errechnet den Momentenverlauf"
+    ID_BERECHNUNG_ERGEBNISSE_QUERKRAFT "Errechnet den Querkraftverlauf"
+    ID_BERECHNUNG_ERGEBNISSE_LNGSKRAFT "Errechnet den Längskraftverlauf"
+    ID_BUTTON32798          "Linienlast auf einen Balken eingeben"
+    ID_BUTTON32799          "Zeigt die Durchbiegungen an"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_BUTTON32800          "Speichert das Targwerk"
+    ID_BUTTON32807          "Öffnet den Berechnungs-Dialog"
+    ID_BUTTONCALC           "Öffnet den Dialog mit den Berechnungs-Varianten"
+    ID_BUTTON32809          "Zeigt die berechneten Momente an"
+    ID_BUTTON32810          "Zeigt die berechnete Querkraftfläche an"
+    ID_BUTTON32811          "Zeigt die berechnete Längskraftfläsche an"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_PRINT           "Neues Problem erzeugen"
+END
+
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE 7, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Win_Traglast.rc2"  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen
+#include "l.deu\afxres.rc"          // Standardkomponenten
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

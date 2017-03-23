@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<localization lang="eng">
+	<textNode stringId="foo1" text="bar1"/>
+    <textNode stringId="CalcOptionDialogTitle" text="CalculationOptions"/>
+</localization>

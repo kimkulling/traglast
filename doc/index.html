@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<title>Traglast</title>
+<style type="text/css">
+	.box {  padding:6px; margin:0px; }
+
+	h1 { 
+		color:black;
+		background-color:#CCEEEE;
+		font-family:'Times New Roman',Times,serif;
+		font-size:large;
+		border-width:1px;
+		border-style:solid;
+		border-color:blue;
+		padding:1.0em;
+		text-align:justify;
+		border:solid thin black;		
+	} 
+	h2 {
+		color:black; 
+		background-color:#CCEEEE;
+		font-family:'Times New Roman',Times,serif;
+		font-size:medium;
+		border:solid thin black;				
+	}
+	p {
+		color:black; 
+		font-family:'Times New Roman',Times,serif;
+		font-weight:normal;
+		font-size:medium;
+		border:solid thin black;
+		padding-left:2.5em;
+		padding-right:2.5em;
+		padding-top:0.5em;
+		padding-bottom:0.5em;
+	}
+</style>
+</head>
+<body>
+	<h1>
+		<center>Traglast, a free finite-element-solver for 2D-static problems</center>
+	</h1>
+	
+	<!-- About -->
+	<h2>
+		<center>About traglast</center>
+	</h2>
+	<p>
+		Traglast is a small finite-element-solver for linear static problems in 2D structures. You can also calculate 
+		boundary loads of steam-beam-constructions by using a nonlinear algorithm. Traglast supports beam-elements 
+		with joints.
+		<br>
+		To create your structures Traglast provides a simple GUI for pre- and post-processings. Cou can create a  complete model, 
+		calculate the deformations and after that you can visualize the defomations, moments ans all forces in the model.
+		<br>
+		Traglast is under the GPL.
+	</p>
+	
+	<!-- Quick start -->
+	<h2>
+		<center>Quick start</center>
+	</h2>
+	<p>
+		At first get the windows-installer at <a href="https://sourceforge.net/projects/traglast/">Sourceforge</a> 
+		and install Traglast for win32. Now start it and you should see the Win32-GUI for traglast:
+		<br><br>
+		<u>Create nodes: </u>
+		<br>
+		To create a simple model select Struktur->Koordinaten erzeugen->Knoten erzeugen. 
+		Enter at first two coordinates at 0.0, 0.0 with a boundary condition in x, y and around the x axis. 
+		Now create another node at 10.0, 0 withound any boundary conditions.
+		<br><br>
+		<u>Create a material:</u>
+		<br>
+		Open Struktur->Material->Material erzeugen and a dialog for the material input will be opened. 
+		Now enter the data for your material. You can also define a plastic moment for the boundary load computation.
+		<br><br>
+		<u>Create elements</u>
+		<br>
+		Select Struktur->Elemente->Numerisch to open the Create-Element-dialog. Enter the start and the end-node, choose the 
+		number of elements to create. At last select your material and close the dialog by pressing OK.
+		<br><br>
+		<u>Define loadings</u><br>
+		Select Strutur->Lasten->Einzeleinwirkung erzeugen to open the loading dialog. Now select the direction of the load, 
+		enter the value and select a node for your loading. Close the dialog by pressing Ok.
+		<br><br>
+		<u>Start the calculation</u><br>
+		Select Berechhnung->Berechnung starten to open the calculation-dialog. Now click on Optionen and select 
+		"Berechnung nach Theorie 1. Ordung". Click on OK and click on Berechnung starten. If everything was right 
+		you should see a dialog withe the estimated time for your calculation.
+		<br><br>
+		<u>Check your results</u><br>
+		Select Berechnung->Ergebnisse and select each possible point to see the deformation and the inner forces of your structure.
+		<br>
+	</p>
+	
+	<!-- Download -->
+	<h2>
+		<center>Download</center>
+	</h2>
+	<p>
+		You can download Traglast for Win32 at <a href="https://sourceforge.net/projects/traglast/">Sourceforge</a>. A linux version is in planning, 
+		but not finished yet.
+	</p>
+	
+	<!-- Contact -->
+	<h2>
+		<center>Contact us</center>
+	</h2>
+	<p>
+		For any questions just visit our project website <a href="https://sourceforge.net/projects/traglast/">Sourceforge</a> 
+	</p>
+</body>
+</html>

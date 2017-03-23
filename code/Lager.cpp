@@ -1,0 +1,140 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Programmfile : 
+// Beschreibung	: 
+// Autor		: Kim Kulling
+// Last mod.    : 28.04.2003
+/////////////////////////////////////////////////////////////////////////////////////////////////
+#include "stdafx.h"
+
+using namespace FEStructure;
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Methode		: Lager()::Lager()
+// Beschreibung	: Konstruktor
+/////////////////////////////////////////////////////////////////////////////////////////////////
+Lager::Lager()
+{
+	Wert = 0;
+	Pos  = 0;
+	pNext_Lager = NULL;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Methode		: Lager::~Lager()
+// Beschreibung	: Destruktor
+/////////////////////////////////////////////////////////////////////////////////////////////////
+Lager::~Lager()
+{
+	if (pNext_Lager!=NULL)
+		delete pNext_Lager;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Methode		: LagerStack::LagerStack()
+// Beschreibung	: Konstruktor
+/////////////////////////////////////////////////////////////////////////////////////////////////
+LagerStack::LagerStack()
+{
+	iAnz = 0;
+	pLagerAnker = NULL;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Methode		: LagerStack::~LagerStack()
+// Beschreibung	: Destruktor
+/////////////////////////////////////////////////////////////////////////////////////////////////
+LagerStack::~LagerStack()
+{
+	//delete pLagerAktuell;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Methode		: LagerStack::addLager()
+// Beschreibung	: Addiert einen einzelnen Wert in den Lagerstack
+// Parameter
+// Wert			: Wert
+// Pos			: Position in der Liste
+/////////////////////////////////////////////////////////////////////////////////////////////////
+void LagerStack::addLager(double Wert, int Pos)
+{
+	Lager *pWork;
+	Lager *pNewLager       = new Lager;
+	pNewLager->Wert        = Wert;
+	pNewLager->Pos         = Pos;
+	pNewLager->pNext_Lager = NULL;
+	if (pLagerAnker == NULL)
+		pLagerAnker = pNewLager;
+	else {
+		pWork = pLagerAnker;
+		while ((pWork->pNext_Lager)!=0)
+			pWork = pWork->pNext_Lager;
+		pWork->pNext_Lager = pNewLager;
+	}
+	pLagerAktuell = pNewLager;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Methode		: LagerStack::readLager(int Pos)
+// Beschreibung	: Liest Lagerdaten aus dem Lagerstack
+/////////////////////////////////////////////////////////////////////////////////////////////////
+double LagerStack::readLager(int Pos)
+{
+	Lager *pWork = pLagerAnker;
+	
+	if (pLagerAnker!=NULL) {
+		while ((pWork->Pos)!=Pos) 
+			pWork=pWork->pNext_Lager;
+		return pWork->Wert;
+	}
+	return -1;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Methode		: LagerStack::delLager(int iPos)
+// Beschreibung	: Löscht ein Lager
+// Parameter
+// iPos			: Position
+// Rückgabewert	: TRUE, wenn erfolgreich
+/////////////////////////////////////////////////////////////////////////////////////////////////
+BOOL LagerStack::delLager(int iPos)
+{
+	Lager *pIndex = pLagerAnker;
+
+	if (pLagerAnker!=NULL) {
+		while (((pIndex->Pos)!=iPos)||((pIndex->pNext_Lager)!=NULL))
+			pIndex = pIndex->pNext_Lager;
+
+		pLagerAktuell = pIndex->pNext_Lager;
+		delete pIndex;
+		pIndex = pLagerAktuell;
+		while ((pIndex->Pos)!=(iPos-1))
+			pIndex = pIndex->pNext_Lager;
+
+		pIndex->pNext_Lager = pLagerAnker;
+	}
+	return TRUE;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Methode		: LagerStack::setLager(double dWert, int iPos)
+// BEschreibung	: Manipulation von Lagern
+// Parameter
+// dWert		: Wert, der gesetzt werden soll
+// iPos			: Position
+// Rückgabewert	: TRUE, wenn erfolgreich
+/////////////////////////////////////////////////////////////////////////////////////////////////
+BOOL LagerStack::setLager(double dWert, int iPos)
+{
+	Lager *pIndex = pLagerAnker;
+
+	if (pLagerAnker!=NULL) {
+		while (((pIndex->Pos)!=iPos)||((pIndex->pNext_Lager)!=NULL))
+			pIndex = pIndex->pNext_Lager;
+
+		pIndex->Wert = dWert;
+		
+		return TRUE;
+	}
+	else
+		return FALSE;
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<localization lang="foo">
+	<textNode stringId="foo1" text="bar1">
+</localization>

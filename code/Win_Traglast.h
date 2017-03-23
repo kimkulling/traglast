@@ -1,0 +1,47 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// Programmfile : 
+// Beschreibung	: 
+// Autor		: Kim Kulling
+// Last mod.    : 28.04.2003
+/////////////////////////////////////////////////////////////////////////////////////////////////
+#ifndef __WINTRAGLAST_H
+#define __WINTRAGLAST_H
+#ifndef __AFXWIN_H__
+	#error include 'stdafx.h' before including this file for PCH
+#endif
+
+// Including resources
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// CWin_TraglastApp:
+// Siehe Win_Traglast.cpp für die Implementierung dieser Klasse
+/////////////////////////////////////////////////////////////////////////////////////////////////
+class CWin_TraglastApp : public CWinApp
+{
+public:
+	// Constructor
+	CWin_TraglastApp();
+	~CWin_TraglastApp();
+	
+
+// Überladungen
+	//{{AFX_VIRTUAL(CWin_TraglastApp)
+	public:
+	virtual BOOL InitInstance();
+	//}}AFX_VIRTUAL
+
+// Implementierung
+
+public:
+	//{{AFX_MSG(CWin_TraglastApp)
+	afx_msg void OnAppAbout();
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+};
+
+/////////////////////////////////////////////////////////////////////////////
+
+//{{AFX_INSERT_LOCATION}}
+
+#endif

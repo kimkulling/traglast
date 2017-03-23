@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<localization lang="Deutsch">
+  <!-- Common strings -->
+  <textNode stringId="DialogOK" text="OK"/>
+  <textNode stringId="DialogDelete" text="Loeschen"/>
+  <textNode stringId="DialogCancel" text="Abbrechen"/>
+
+  <!-- Property dialog -->
+  <textNode stringId="PropertiesDialogTitle" text="Eigenschaften" />
+  
+  <!-- Calc option dialog -->
+  <textNode stringId="CalcOptionDialogTitle" text="Berechnungsoptionen" />
+  <textNode stringId="CalcOptionDlgItemLog" text="Logfile erzeugen" />
+  <textNode stringId="CalcOptionDialogGrpOptions" text="Berechnung-Variante:" />  
+  <textNode stringId="CalcOptionDialogRBThFirstOrder" text="Berechnung nach Th. 1.er Ordnung" />
+  <textNode stringId="CalcOptionDialogRBMAxLoad" text="Berechnung nach Traglastverfahren" />
+  <textNode stringId="CalcOptionDialogGrpLog" text="Optionen:" />
+  <textNode stringId="CalcOptionDialogErrorSection" text="Es können nur die Traglasten einzelner Abschnitte berechnet werden!" />
+
+  <!-- Calc dialog -->
+  <textNode stringId="CalcDialogTitle" text="Berechnung starten"/>
+  <textNode stringId="CalcDialogOptionsButton" text="Optionen"/>
+  <textNode stringId="CalcDialogCloseButton" text="Schliessen"/>
+  <textNode stringId="CalcDialog_CalcState" text="Status der Berechnung:"/>
+  <textNode stringId="CalcDialog_Calc" text="Parameter:"/>
+  <textNode stringId="CalcDialog_Process" text="Momentaner Prozess:"/>
+  <textNode stringId="CalcDialog_Progess" text="Fortschritt:"/>
+  <textNode stringId="CalcDialog_BandWidth" text="Bandbreite"/>
+  <textNode stringId="CalcDialog_MaxDOF" text="Maximale Freiheitsgrad"/>
+  <textNode stringId="CalcDialog_Nodes" text="Knoten"/>
+  <textNode stringId="CalcDialog_Elements" text="Elemente"/>
+  <textNode stringId="CalcDialog_Memory" text="Memory ( in KB )"/>
+  
+  <!-- Coordinate work dialog -->
+  <textNode stringId="CoordWorkDialogTitle" text="Koordinaten bearbeiten" />
+  <textNode stringId="CoordWorkDlg_XComp" text="X Komponente" />
+  <textNode stringId="CoordWorkDlg_YComp" text="Y Komponente" />
+  <textNode stringId="CoordWorkDlg_BoundaryGrp" text="Randbedingungen bearbeiten" />
+  <textNode stringId="CoordWorkDlg_BoundaryX" text="In X-Richtung gehalten" />
+  <textNode stringId="CoordWorkDlg_BoundaryY" text="In Y-Richtung gehalten" />
+  <textNode stringId="CoordWorkDlg_BoundaryZ" text="Rotation um X gehalten" />
+
+  <!-- Element work dialog -->
+  <textNode stringId="EleWorkDlg_NodeGroup" text="Knotenanfang- und Ende:" />
+  <textNode stringId="EleWorkDlg_EleNode1" text="Knoten 1" />
+  <textNode stringId="EleWorkDlg_EleNode2" text="Knoten 2" />
+  <textNode stringId="EleWorkDlg_MeshGroup" text="Vernetzungs-Optionen:" />
+  <textNode stringId="EleWorkDlg_MeshIntervall" text="Berechnungsintervalle:" />
+  <textNode stringId="EleWorkDlg_MaterialGroup" text="Material selektieren:" />
+  <textNode stringId="EleWorkDlg_EleTypeGroup" text="Art des Elementes wählen:" />
+  <textNode stringId="EleWorkDlg_BarEle" text="Fachwerk-Stab (2D)" />
+  <textNode stringId="EleWorkDlg_BeamEle" text="BiegeBalken (2D)" />
+  <textNode stringId="EleWorkDlg_BoundaryOption1" text="Fest angeschlossen ( 1|1|1 )" />
+  <textNode stringId="EleWorkDlg_BoundaryOption2" text="Links gelenkig angeschlossen ( 1|1|0 )" />
+  <textNode stringId="EleWorkDlg_BoundaryOption3" text="Rechts gelenkig angeschlossen ( 1|1|0 )" />
+  
+  <!-- Delete material dialog-->
+  <textNode stringId="EleDelMatDlg_Title" text="Material loeschen" />
+  <textNode stringId="EleDelMatDlg_SelectMat" text="Material selektieren:" />
+
+  <!-- DeleteSingle pointload dialog -->
+  <textNode stringId="PointLoadDlg_Title" text="Verwalte Einzellasten:" />
+  <textNode stringId="PointLoadDlg_SelectDirGroup" text="Selektiere Richtung:" />
+  <textNode stringId="PointLoadDlg_ValueGroup" text="Wert [kN]:" />
+  <textNode stringId="PointLoadDlg_NodeGroup" text="Selektiere Knoten:" />
+  <textNode stringId="PointLoadDlg_LoadX" text="Kraft in X [kN]" />
+  <textNode stringId="PointLoadDlg_LoadY" text="Kraft in Y [kN]" />
+  <textNode stringId="PointLoadDlg_LoadM" text="Moment um X [ KN/m ]" />
+  
+  <!-- Manage material dialog -->
+  <textNode stringId="MaterialDlg_Title" text="Materialien bearbeiten:" />
+  <textNode stringId="MaterialDlg_ElasticGroup" text="Elastische Komponenten:" />
+  <textNode stringId="MaterialDlg_MaterialName" text="Name" />
+  <textNode stringId="MaterialDlg_E_Module" text="E-Modul" />
+  <textNode stringId="MaterialDlg_Area" text="Querschnittsflaeche" />
+  <textNode stringId="MaterialDlg_Iy" text="Traegheitsmoment Iy" />
+  <textNode stringId="MaterialDlg_PlasticGroup" text="Plastische Komponenten:" />
+  <textNode stringId="MaterialDlg_PlasticMoment" text="M plastisch" />
+
+  <!-- Structure info dialog -->
+  <textNode stringId="StructureInfoDlg_Title" text="Tragwerks-Informationen:" />
+  <textNode stringId="StructureInfoDlg_NoCoords" text="Anzahl von Knoten:" />
+  <textNode stringId="StructureInfoDlg_NoMaterials" text="Anzahl von Materialien:" />
+  <textNode stringId="StructureInfoDlg_NoElements" text="Anzahl von Elementen:" />
+  <textNode stringId="StructureInfoDlg_NoLoads" text="Anzahl von Einzel-Lasten:" />
+
+  <!-- About dialog -->
+  <textNode stringId="AboutDlg_Title" text="Traglast fuer Win32" />
+
+  <!-- Menus -->
+  <!-- File -->
+  <textNode stringId="Menu_File_Title" text="Datei" />
+  <textNode stringId="Menu_File_New" text="Neu" />
+  <textNode stringId="Menu_File_Open" text="Öffnen" />
+  <textNode stringId="Menu_File_Save" text="Speichern" />
+  <textNode stringId="Menu_File_SaveAs" text="Speichern unter" />
+  <textNode stringId="Menu_File_Export" text="Export" />
+  <textNode stringId="Menu_File_ExportAscii" text="ASCII" />
+  <textNode stringId="Menu_File_Print" text="Drucken" />
+  <textNode stringId="Menu_File_Quit" text="Beenden" />
+
+  <!-- Edit -->
+  <textNode stringId="Menu_Edit_Title" text="Bearbeiten" />
+  <textNode stringId="Menu_Edit_Undo" text="Rückgängig" />
+  <textNode stringId="Menu_Edit_Cut" text="Ausschneiden" />
+  <textNode stringId="Menu_Edit_Copy" text="Kopieren" />
+  <textNode stringId="Menu_Edit_Paste" text="Einfügen" />
+
+  <!-- View -->
+  <textNode stringId="Menu_View_Title" text="Ansicht" />
+  <textNode stringId="Menu_View_ViewBar" text="Symbolleiste" />
+  <textNode stringId="Menu_View_StatusBar" text="Statusleiste" />
+  <textNode stringId="Menu_View_Zoom" text="Zoom" />
+  <textNode stringId="Menu_View_ZoomAll" text="Zoom Alles" />
+  <textNode stringId="Menu_View_ZoomIn" text="Zoom in" />
+  <textNode stringId="Menu_View_ZoomOut" text="Zoom out" />
+  <textNode stringId="Menu_View_View" text="Ansocht" />
+  <textNode stringId="Menu_View_Properties" text="Eigenschaften" />
+
+  <!-- Structure -->
+  <textNode stringId="Menu_Structure_Title" text="Struktur" />
+  <textNode stringId="Menu_Structure_Coord" text="Knoten" />
+  <textNode stringId="Menu_Structure_Coord_Numeric" text="Numeric" />
+  <textNode stringId="Menu_Structure_Material" text="Material" />
+  <textNode stringId="Menu_Structure_Material_Input" text="Input" />
+  <textNode stringId="Menu_Structure_Material_Delete" text="Löschen" />
+  <textNode stringId="Menu_Structure_Elemnts" text="Elemente" />
+  <textNode stringId="Menu_Structure_Elemnts_Numeric" text="Numerisch" />
+  <textNode stringId="Menu_Structure_Loads" text="Lasten" />
+  <textNode stringId="Menu_Structure_Loads_PointLoads" text="Punktlasten" />
+  <textNode stringId="Menu_Structure_Loads_LineLoads" text="Linienlasten" />
+  <textNode stringId="Menu_Structure_Info" text="Info" />
+
+  <!-- Computation -->
+  <textNode stringId="Menu_Computation_Title" text="Berechnung" />
+  <textNode stringId="Menu_Computation_StartCalc" text="Starte Berechnung" />
+  <textNode stringId="Menu_Computation_ResultMenu" text="Ergebnisse" />
+  <textNode stringId="Menu_Computation_ResultDeform" text="Verschiebungen" />
+  <textNode stringId="Menu_Computation_ResultMoment" text="Momentverlauf" />
+  <textNode stringId="Menu_Computation_ResultShearForce" text="Querkraft-Verlauf" />
+  <textNode stringId="Menu_Computation_ResultNormalForce" text="Längskraft-Verlauf" />
+  <textNode stringId="Menu_Computation_DelResults" text="Ergebnisse löschen" />
+
+  <!-- Help -->
+  <textNode stringId="Menu_Help_Title" text="?" />
+  <textNode stringId="Menu_Help_Info" text="Programm Informationen" />
+
+  <!-- Error texts -->
+  <textNode stringId="ErrMsg_ErrOpnFile" text="Fehler beim Laden der Datei." />
+  <textNode stringId="ErrMsg_ErrSavFile" text="Fehler beim Speichern der Daten." />
+  <textNode stringId="ErrMsg_NoRes" text="Es sind noch keine Ergebnisse berechnet worden." />
+  <textNode stringId="ErrMsg_StrucIncompl" text="Tragwerks-Informationen nicht vollständig eingegeben." />
+  <textNode stringId="ErrMsg_ErrCuttingForce" text="Fehler beim Berechnen der Schnittkraefte." />
+  <textNode stringId="ErrMsg_ErrCalcLimitForce" text="Fehler bei der Berechnung der Traglast." />
+  
+  <!-- Message texts -->
+  <textNode stringId="Msg_LimitLoad" text="Die Traglast betraegt" />
+  <textNode stringId="Msg_CompTime" text="Zeit der Berechnung:" />
+  <textNode stringId="Msg_SaveRes" text="Ergebnisse in Datei sichern?" />
+  <textNode stringId="Msg_TraglastIncLoad" text="Last erhoeht um :" />
+  <textNode stringId="Msg_TraglastMaxMoment" text="Maximaler M-Wert :" />
+  <textNode stringId="Msg_TraglastMaxPlast" text="Plastisches Moment :" />
+  <textNode stringId="Msg_RemoveCond" text="Rand bedingung geloest am Kn.:" />
+  <textNode stringId="Msg_AddJoint" text="Gelenk eingebaut am Kn.:" />
+  <textNode stringId="Msg_NumIt" text="Iterationsschritt :" />
+
+  <!-- Tool bars -->
+  <textNode stringId="Toolbar_Tools" text="Werkzeuge" />
+  <textNode stringId="Toolbar_Nodes" text="Koordinaten" />
+  <textNode stringId="Toolbar_Loads" text="Lasten" />
+  <textNode stringId="Toolbar_Results" text="Ergebnisse" />
+
+  <!-- Status texts -->
+  <textNode stringId="StatusTxt_Nodes" text="Knoten" />
+  <textNode stringId="StatusTxt_Elements" text="Elemente" />
+  <textNode stringId="StatusTxt_Cond" text="Gelagerte Kn." />
+  <textNode stringId="StatusTxt_NoCalcOption" text="Bitte die Berechnungsvariante unter Optionen wählen." />
+</localization>
+
