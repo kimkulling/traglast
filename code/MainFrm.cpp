@@ -802,8 +802,6 @@ void CMainFrame::langSetupFileMenu( CMenu *pMenu )
 	
 	newStr = LocalizationServer::get()->getText( "Menu_File_Title" );
 	pMenu->ModifyMenu( FileMenuPos, MF_BYPOSITION, 0, newStr.c_str() );
-
-	//setLangStringInMenu( pMenu, "Menu_File_Title", ID_DATEI_TITLE );
 	
 	setLangStringInMenu( pMenu, "Menu_File_New", ID_DATEI_NEU );
 	setLangStringInMenu( pMenu, "Menu_File_Open", ID_DATEI_FFNEN );
@@ -817,7 +815,6 @@ void CMainFrame::langSetupFileMenu( CMenu *pMenu )
  	setLangStringInMenu( pMenu, "Menu_File_Print", ID_DATEI_DRUCKEN );
 	
  	setLangStringInMenu( pMenu, "Menu_File_Quit", ID_APP_EXIT );
-
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -931,5 +928,3 @@ void CMainFrame::showLastError(LPTSTR lpszFunction)
     LocalFree(lpMsgBuf);
     LocalFree(lpDisplayBuf);
 }
-
-//----------------------------------------------------------------------------------------------------------------------
