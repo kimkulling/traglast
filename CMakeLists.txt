@@ -6,29 +6,35 @@ SET ( TRAGLAST_VERSION_PATCH 0 )
 SET ( TRAGLAST_VERSION ${TRAGLAST_VERSION_MAJOR}.${TRAGLAST_VERSION_MINOR}.${TRAGLAST_VERSION_PATCH} )
 SET ( PROJECT_VERSION "${TRAGLAST_VERSION}" )
 
-if( CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX )
-    find_package(Threads)
-endif()
-
-option( BUILD_UNITTESTS "Build unit tests." ON )
-
-add_definitions( -D_AFXDLL )
-add_definitions( -D_VARIADIC_MAX=10 )
+# Cache these to allow the user to override them manually.
+SET( LIB_INSTALL_DIR "lib" CACHE PATH
+    "Path the built library files are installed to." )
+SET( INCLUDE_INSTALL_DIR "traglast" CACHE PATH
+    "Path the header files are installed to." )
+SET( BIN_INSTALL_DIR "bin" CACHE PATH
+    "Path the tool executables are installed to." )
 
 INCLUDE_DIRECTORIES(
-    ./
-    ./code
-	./contrib
+    code/
 )
 
 link_directories(
-    ./lib
+    ${CMAKE_HOME_DIRECTORY}/lib
+    ${CMAKE_HOME_DIRECTORY}/bin
 )
 
 SET( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib )
 SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/lib )
 SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin )
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+IF ( BUILD_SHARED_LIBS AND CMAKE_SIZEOF_VOID_P EQUAL 8 ) # -fPIC is only required for shared libs on 64 bit
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC" )
+  SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -fPIC" )
+ENDIF()
+
+# we want to have all wanings
 if( WIN32 AND NOT CYGWIN )
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHsc" )  # Force to always compile with W4
   if( CMAKE_CXX_FLAGS MATCHES "/W[0-4]" )
