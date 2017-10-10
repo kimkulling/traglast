@@ -34,6 +34,8 @@ IF ( BUILD_SHARED_LIBS AND CMAKE_SIZEOF_VOID_P EQUAL 8 ) # -fPIC is only require
   SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -fPIC" )
 ENDIF()
 
+add_definitions( -D_AFXDLL )
+
 # we want to have all wanings
 if( WIN32 AND NOT CYGWIN )
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHsc" )  # Force to always compile with W4
@@ -59,8 +61,8 @@ SET ( tinyxml_src
 )
 
 SET ( traglast_src
-	code/Ansicht.cpp
-	code/Ansicht.h
+	#code/Ansicht.cpp
+	#code/Ansicht.h
 	code/Band.cpp
 	code/Band.h
 	code/BandOp.cpp
