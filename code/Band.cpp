@@ -166,7 +166,7 @@ Vektor MakeStuetzStack(Vektor MyLager, NodeStack nodes )
 
 	// Init of memory
 	iI3=0;
-	MyLager.DeclVektor( nodes.getNumberOfNodes() * 4 );
+	MyLager.initVector( nodes.getNumberOfNodes() * 4 );
 
 	// Lese alle Koordinaten aus
 	NodeStack::NodeDef node;
@@ -238,7 +238,7 @@ Vektor MakeLastVektor(LastStack LastEingabe, int iFGKno)
 
 	// Initialisiere Speicher für den Lastvektor
 	dRes = iLastNr * (iFGKno + 1);
-	LastCalc.DeclVektor( (i32) dRes );
+	LastCalc.initVector( (i32) dRes );
 
 	for (iI1=1; iI1<=iLastNr; iI1++) { // Wiederhole so oft, wie Lasten eingegeben wurden
 		for (iI2=1; iI2<=(iFGKno+1); iI2++) {
@@ -767,8 +767,7 @@ double GetMaxLast(Vektor Vtemp, int /*iAnz*/, int iPos, Vektor Knoten,
 
 	dMax = 0;
 	// Wenn noch keine plastischen Momente vorhanden
-	if (Knoten.iAnz==0) 
-	{ 
+	if (Knoten.isEmpty() ) 	{ 
 		// Sooft machen, wie Schnittkräfte berechnet wurden
 		for (iI1=1; iI1<=iPos; iI1++) 
 		{ 
@@ -784,10 +783,11 @@ double GetMaxLast(Vektor Vtemp, int /*iAnz*/, int iPos, Vektor Knoten,
 			iKn = Inz.ReadInz(iI1);		// Lese Knotennummer aus Inzidenztabelle
 			dW = Vtemp.readVektor(iI1);
 			bFlag = TRUE;
-			for (iI2=1; iI2<=Knoten.iAnz; iI2++) 
+			for (iI2=1; iI2<=Knoten.Size(); iI2++) 
 			{	
 				// Wenn Knoten kein pl.Gelenk 
-				if (round(Knoten.readVektor(iI2))==iKn)
+                double res = Math::round( ( double )Knoten.readVektor( iI2 ) );
+                if (res==iKn)
 					bFlag = false;
 			}
 			if ((fabs(dW)>fabs(dMax))&&bFlag)

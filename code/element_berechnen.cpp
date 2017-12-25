@@ -25,7 +25,7 @@ using namespace Math;
 Vektor Fachwerk(double dEM, double dA, double dX1, double dX2, double dY1, 
 					 double dY2, Vektor K)
 {
-	K.DeclVektor(21);
+	K.initVector(21);
 
 	// Ermittlung der Steifigkeitsparameter
 	d32 dL = MathUtils<Core::d32>::getLength( (dX2 - dX1), (dY2 - dY1) );
@@ -96,11 +96,12 @@ Vektor Balken(double dEmodul, double dFlaeche, double dIy, double dX1, double dX
 				   double dY1, double dY2)
 {
 	Vektor K;
-	K.DeclVektor(21);
-	d32 dV[21];
-	memset(dV, 0, sizeof(double) * 21);
+    static const size_t NumItems = 21;
+	K.initVector(NumItems);
+	d32 dV[NumItems];
+	::memset(dV, 0, sizeof(double) * NumItems);
 
-	// Calculationg parameters for stiffness
+	// Calculating parameters for stiffness matrix
 	d32 dX21	= dX2 - dX1;
 	d32 dY21	= dY2 - dY1;
 	d32 dLaenge	= MathUtils<Core::d32>::getLength( dX21, dY21 );
@@ -112,7 +113,7 @@ Vektor Balken(double dEmodul, double dFlaeche, double dIy, double dX1, double dX
 	if ((dX1 - dX2)<0) 
 		dCy = -dCy;
 	
-	/* Ermittlung der Steifigkeits-Parameter */
+	// Ermittlung der Steifigkeits-Parameter
 	d32 dF1 = (dEmodul * dFlaeche) / dLaenge;
 	d32 dF2 = (dEmodul * dIy) / (dLaenge * dLaenge * dLaenge);
 	
@@ -178,7 +179,7 @@ Vektor BalkenGelenk(int iPos, double dX1, double dX2, double dY1, double dY2,
 	d32 dCy  = dY21 / dL;
 
 	// Initialisierung der Elementsteifugkeitsmatrix
-	K.DeclVektor( 21 );
+	K.initVector( 21 );
 	dT[ 0 ] = 0;
 	dT[ 1 ] = dCx * dCx;	// cos^2
 	dT[ 2 ] = dCx * dCy;	// cos * sin

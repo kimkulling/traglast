@@ -588,8 +588,7 @@ void CMainFrame::OnButton32793()
 }
 
 //----------------------------------------------------------------------------------------------------------------------
-void CMainFrame::OnBerechnungErgebnisseDurchbiegung() 
-{
+void CMainFrame::OnBerechnungErgebnisseDurchbiegung() {
 	InzidenzStack Inz;
 	double dS = MyTragwerk.dTScale;
 
@@ -700,9 +699,9 @@ void CMainFrame::OnDateiNeu()
 	iMatNr					= 0;
 	iLastNr					= 0;
 	LastEingabe.iLastNr		= 0;
-	VM.iAnz					= 0;
-	VQ.iAnz					= 0;
-	VN.iAnz					= 0;
+	VM.m_size  	            = 0;
+	VQ.m_size = 0;
+	VN.m_size = 0;
 	MyTragwerk.bCalc		= FALSE;
 	MyTragwerk.bM			= FALSE;
 	MyTragwerk.bQ			= FALSE;

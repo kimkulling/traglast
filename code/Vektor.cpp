@@ -20,42 +20,30 @@ using namespace Core;
 // Methode		: Vektor::Vektor()
 // Beschreibung	: Konstruktor der Klasse Vektor
 /////////////////////////////////////////////////////////////////////////////////////////////////
-Vektor::Vektor(void)
-{
-	dVector    = 0.0;
-	pVektor    = NULL;
-	dScaleX    = 0.0;
-	dScaleY    = 0.0;
-	iAnz       = 0;
-	dMaxV      = 0.0;
-	dMinV      = 0.0;
-	m_bChanged = FALSE;
+Vektor::Vektor()
+: m_dVector( 0.0 )
+, m_data( nullptr )
+, m_dScaleX( 0.0 )
+, m_dScaleY( 0.0 )
+, m_size( 0U )
+, m_dMaxV( 0.0 )
+, m_dMinV( 0.0 )
+, m_changed( false ) {
+    //  empty
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-// Methode		: VektorStack::DeclVektor(int iAnz)
-// Beschreibung	: Stellt eine Liste der Länge iAnz zur Verfügung und besetzt sie mit Nullen
-// Parameter
-// --> iAnz : Anzahl der Einträge
-/////////////////////////////////////////////////////////////////////////////////////////////////
-int Vektor::DeclVektor(int iA) 
-{
-	if (iA<1)
-		return ErrorHandler::WT_ERR;
+void Vektor::initVector(int numItems )  {
+	if ( numItems < 1)
+		return;
 
-	if (iA==1) {
-		dVector = (double) 0.0;
-		return ErrorHandler::WT_OK;
+	if ( numItems ==1) {
+		m_dVector = 0.0;
+        return;
 	}
 
-	iAnz = iA;
-	if ((pVektor = new double[iA])==NULL)
-		return ErrorHandler::WT_ERR;
-
-	/* Zero the memory */
-	memset(pVektor, 0, sizeof(double) * iA);
-
-	return ErrorHandler::WT_OK;
+    m_size = numItems;
+    m_data = new double[ numItems ];
+	::memset( m_data, 0, sizeof(double) * numItems );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -66,7 +54,11 @@ int Vektor::DeclVektor(int iA)
 /////////////////////////////////////////////////////////////////////////////////////////////////
 i32 Vektor::Size()
 {
-	return iAnz;
+	return m_size;
+}
+
+bool Vektor::isEmpty() const {
+    return ( 0 == m_size );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,35 +73,37 @@ int Vektor::addVektor(const double dWert)
 	int    i=0;
 	double *tmp=NULL;
 	
-	++iAnz;	
-	if (iAnz==1) {
-		dVector    = dWert;
-		m_bChanged = TRUE;
+	++m_size;
+	if ( m_size ==1) {
+		m_dVector    = dWert;
+		m_changed = true;
 
 		return ErrorHandler::WT_OK;
 	}
 
-	if ((tmp = new double[iAnz])==NULL)
+	if ((tmp = new double[m_size])==NULL)
 		return ErrorHandler::WT_FATAL_ERR;
 	
-	for (i=0; i<iAnz; i++)
-		tmp[i] = pVektor[i];	
+	for (i=0; i<m_size; i++)
+		tmp[i] = m_data[i];	
 
-	tmp[iAnz-1] = dWert;
-	delete [] pVektor;
+	tmp[ m_size -1] = dWert;
+	delete [] m_data;
+    m_data = nullptr;
+
 	
-	for (i=0; i<iAnz; i++)
-		pVektor[i] = tmp[i];
+	for (i=0; i<m_size; i++)
+        m_data[i] = tmp[i];
 
-	if (!iAnz)
+	if (!m_size )
 		return ErrorHandler::WT_FATAL_ERR;
 
-	if (iAnz>1)
+	if ( m_size>1)
 		delete [] tmp;
 	else 
 		delete tmp;
 
-	m_bChanged = TRUE;
+	m_changed = true;
 
 	return ErrorHandler::WT_OK;
 }
@@ -127,41 +121,28 @@ int Vektor::GetBlock(int iNum, int iStart, double *pBlock)
 
 	iIndex = iStart * iNum;
 
-	if (iIndex>iAnz)
+	if (iIndex>m_size )
 		return ErrorHandler::WT_ERR;
 	
-	memcpy(pBlock, pVektor, sizeof(double) * iIndex);
+	memcpy(pBlock, m_data, sizeof(double) * iIndex);
 
 	return ErrorHandler::WT_OK;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-// Methode		: Vektor::delVektor(int iPos)
-// Beschreibung	: Löscht den Eintrag in der Liste an der angegebenen Position
-// Parameter
-// iPos			: Position des Eintrages in der Liste
-// Rückgabewert	: TRUE, wenn erfolgreich
-/////////////////////////////////////////////////////////////////////////////////////////////////
-int Vektor::delVektor(int iPos)
-{
-	int iDiff, iI1;
-
-	iDiff = 0;
-	if (iPos<1 || pVektor==NULL)
+int Vektor::delVektor(int iPos) {
+	if (iPos<1 || m_data == nullptr )
 		return ErrorHandler::WT_ERR;
 
-	/* Delete thee vector, if its possible */
-	iDiff = iAnz - iPos;
-	if (iDiff>0) 
-	{
-		for (iI1=(iPos-1); iI1<iAnz; iI1++) 
-		{
-			if (iI1<(iAnz-1)) 
-				pVektor[iI1] = pVektor[iI1+1];
-			if (iI1==(iAnz-1))
-				delete &pVektor[iI1];
+	// Delete thee vector, if its possible
+	int diff = m_size - iPos;
+	if (diff>0) {
+		for (int i=(iPos-1); i<m_size; i++) {
+			if (i<( m_size -1))
+                m_data[i] = m_data[i+1];
+			if (i==( m_size -1))
+				delete &m_data[i];
 		}
-		m_bChanged = TRUE;
+		m_changed = true;
 		
 		return ErrorHandler::WT_OK;
 	}		
@@ -179,17 +160,17 @@ int Vektor::delVektor(int iPos)
 /////////////////////////////////////////////////////////////////////////////////////////////////
 int Vektor::setVektor(int iPos, double dW)
 {
-	if (pVektor==NULL) 
+	if ( m_data ==NULL)
 		return FALSE;
 	
-	m_bChanged = TRUE;
-	if (iAnz==1) 
+	m_changed = TRUE;
+	if ( m_size ==1)
 	{
-		dVector = dW;
+		m_dVector = dW;
 		return TRUE;
 	}
 	
-	pVektor[iPos-1] = dW;
+    m_data[iPos-1] = dW;
 
 	return TRUE;
 }
@@ -205,10 +186,10 @@ int Vektor::SetBlock(int iNum, int iStart, double *pBlock)
 	
 	int iIndex=0;
 	iIndex = iNum + iStart;
-	if (iIndex>iAnz)
+	if (iIndex>m_size )
 		return ErrorHandler::WT_FATAL_ERR;
 	
-	if (memcpy(pVektor, pBlock, sizeof(double) * iNum) == NULL)
+	if (memcpy( m_data, pBlock, sizeof(double) * iNum) == NULL)
 		return ErrorHandler::WT_FATAL_ERR;
 
 	return ErrorHandler::WT_OK;
@@ -225,12 +206,12 @@ int Vektor::SetBlock(int iNum, int iStart, double *pBlock)
 double Vektor::Getmax(int iFG, int iArt)
 {
 	int    iIn1, iIn2, iI;
-	double *pIndex = pVektor,dTempX=0, dTempY=0, dMax = 0;
+	double *pIndex = m_data,dTempX=0, dTempY=0, dMax = 0;
 
 	iI = 0;
 	if (pIndex!=NULL) {
-		if (m_bChanged) {
-			for (iIn1=1; iIn1<=(iAnz/iFG); iIn1++) {
+		if ( m_changed ) {
+			for (iIn1=1; iIn1<=( m_size /iFG); iIn1++) {
 				for (iIn2=1; iIn2<=iFG; iIn2++) {
 					if ((pIndex[iI]<dTempX) && (iIn2==1) )
 						dTempX = pIndex[iI];
@@ -242,9 +223,9 @@ double Vektor::Getmax(int iFG, int iArt)
 				}
 			}
 
-			// Chaching the calculated values
-			dMaxV       = dMax;
-			m_bChanged	= FALSE;
+			// Caching the calculated values
+            m_dMaxV = dMax;
+            m_changed = false;
 		}
 		switch (iArt) 
 		{
@@ -253,7 +234,7 @@ double Vektor::Getmax(int iFG, int iArt)
 			case 2:  
 				return dTempY;
 			case 3:  
-				return dMaxV;
+				return m_dMaxV;
 			default: 
 				return 0;
 			
@@ -273,14 +254,14 @@ double Vektor::Getmax(int iFG, int iArt)
 /////////////////////////////////////////////////////////////////////////////////////////////////
 double Vektor::Getmin(int iFG, int iArt)
 {
-	double	*pIndex = pVektor, dTempX=0, dTempY=0, dMin = 0;
+	double	*pIndex = m_data, dTempX=0, dTempY=0, dMin = 0;
 	int		iIn1, iIn2, iI = 0;
 	
 	if (pIndex==NULL)
 		return (double) 0.0;
 
 	
-	for (iIn1=1; iIn1<=(iAnz/iFG); ++iIn1) 
+	for (iIn1=1; iIn1<=(m_size/iFG); ++iIn1) 
 	{
 		for (iIn2=1; iIn2<=iFG; iIn2++) 
 		{
@@ -321,10 +302,10 @@ BOOL Vektor::SortVektor(int iArt)
 	int    iI1, iI2, iMin;
 	double dWert = 0;
 
-	for (iI1=1; iI1<(iAnz-1); iI1++) 
+	for (iI1=1; iI1<( m_size -1); iI1++)
 	{
 		iMin = iI1;
-		for (iI2=1; iI2<iAnz; iI2++) 
+		for (iI2=1; iI2<m_size; iI2++)
 		{
 			if (iArt==1) 
 			{
@@ -390,7 +371,7 @@ BOOL Vektor::LoadVektor(const char *lpLoadName)
 /////////////////////////////////////////////////////////////////////////////////////////////////
 BOOL Vektor::SaveVektor(const char *lpSaveName, int iAnz)
 {
-	double	*pWork = pVektor;
+	double	*pWork = m_data;
 	int		iI;
 
 	ofstream Datei(lpSaveName);
@@ -419,11 +400,11 @@ BOOL Vektor::SaveVektor(const char *lpSaveName, int iAnz)
 /////////////////////////////////////////////////////////////////////////////////////////////////
 BOOL Vektor::DelList()
 {
-	double *pIndex = pVektor;
+	double *pIndex = m_data;
 
-	if (pIndex!=NULL) {
-		pVektor	= NULL;
-		iAnz	= 0;
+	if (pIndex!=nullptr) {
+        m_data = NULL;
+        m_size = 0;
 		return TRUE;
 	}
 
@@ -436,10 +417,10 @@ BOOL Vektor::DelList()
 /////////////////////////////////////////////////////////////////////////////////////////////////
 int Vektor::InitVector(int iLower, int iUpper)
 {
-	if (pVektor==NULL)
+	if (m_data==NULL)
 		return ErrorHandler::WT_OK;
 
-	if (iLower<0 || iUpper>iAnz || iLower>iUpper)
+	if (iLower<0 || iUpper>m_size || iLower>iUpper)
 		return ErrorHandler::WT_ERR;
 
 	int iWidth = iUpper - iLower;
@@ -450,7 +431,7 @@ int Vektor::InitVector(int iLower, int iUpper)
 	if (pTemp==NULL)
 		return ErrorHandler::WT_OUT_OF_MEM;
 
-	memcpy(pVektor + iLower, pTemp, sizeof(double) * iWidth);
+	memcpy( m_data + iLower, pTemp, sizeof(double) * iWidth);
 
 	delete [] pTemp;
 
@@ -463,7 +444,7 @@ int Vektor::InitVector(int iLower, int iUpper)
 /////////////////////////////////////////////////////////////////////////////////////////////////
 Vektor::~Vektor()
 {
-	if (NULL != pVektor) {
+	if (NULL != m_data ) {
 /*		if (Size()>1)
 			delete [] pVektor;
 		else

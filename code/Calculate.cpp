@@ -378,7 +378,7 @@ inline Vektor CCalculate::LinCalc(LastStack Last, int iEleNr, int iLastNr, int i
 	double	dK1[2], dK2[2], dMat[4];
 
 	// Initialisierung des Error-Vektors
-	Error.DeclVektor(1);
+	Error.initVector(1);
 	
 	// Anzeige der allgemeinen Tragwerksinformationen
 	strCalcParam.Format("%d", g_NodeStack.getNumberOfNodes() );
@@ -424,7 +424,7 @@ inline Vektor CCalculate::LinCalc(LastStack Last, int iEleNr, int iLastNr, int i
 	SetDlgItemText(IDC_MEM, strCalcParam);
 
 	// Vorbereitung der Systemsteifigkeitsmatrix
-	SysSteif.DeclVektor(iRange);
+	SysSteif.initVector(iRange);
 	
 	// Beginn des Tragwerkszusammenbaues
 	Logger::get()->info( "Begin building stiffness-matrix" );
@@ -508,8 +508,8 @@ inline Vektor CCalculate::LinCalc(LastStack Last, int iEleNr, int iLastNr, int i
 		LastCalc = MakeLastVektor(Last, iFGKno);	
 		
 		// Deklaration des Belastungsvektors für die globalen Knotenlasten
-		if (SysLast1.iAnz==0)
-			SysLast1.DeclVektor(iGesamtFG);
+		if (SysLast1.Size()==0)
+			SysLast1.initVector(iGesamtFG);
 		
 		// Erstellung des Belastungsvektors für die globalen Knotenlasten
 		SysLast1 = Knotenlast(iLastNr, iFGKno, LastCalc, SysLast1);
@@ -547,14 +547,14 @@ inline void CCalculate::SchnittKraft(int iEleKn, int iFGKno, Vektor Erg)
 	// Beginn der Berechnung der Schnittkräfte
 	strCalcParam.Format("Force");
 	SetDlgItemText(IDC_PROCESS, strCalcParam);
-	Temp.DeclVektor(iFGKno * iEleKn);
+	Temp.initVector(iFGKno * iEleKn);
 	iI1 = iEleNr * iEleKn;			
 		
 	// Initialisierung der Schnittkraft-Vektoren VM, VQ, VN
-	VM.DeclVektor(iI1);
-	VQ.DeclVektor(iI1);
-	VN.DeclVektor(iI1);
-	VTemp.DeclVektor(2);
+	VM.initVector(iI1);
+	VQ.initVector(iI1);
+	VN.initVector(iI1);
+	VTemp.initVector(2);
 		
 	iPos = 0;
 		
@@ -673,7 +673,7 @@ inline Vektor CCalculate::PlastCalc()
 	iFGKno	= 3;
 
 	// Init of temporary vectors
-	Vtemp.DeclVektor( ElementEingabe.numberOfElements() * iEleKno );
+	Vtemp.initVector( ElementEingabe.numberOfElements() * iEleKno );
 	
 	// calculation the loading for interation
 	myLast   = GetIterLast(LastEingabe);
@@ -702,7 +702,7 @@ inline Vektor CCalculate::PlastCalc()
 		{
 			// Schrittweises Erhöhen der Last
 			// Wenn nicht die erste Iteration, lösche vorhergehende Ergebnisse
-			if (Erg.iAnz!=0) 
+			if (Erg.Size()!=0) 
 			{
 				dMax  = 0;
 				dDiff = 0;
@@ -819,7 +819,7 @@ inline Vektor CCalculate::PlastCalc()
 						bSet = TRUE;
 						if (fabs(dDiff)<=DIFFERENZ) 
 						{
-							for (iI3=1; iI3<=Knoten.iAnz; iI3++) 
+							for (iI3=1; iI3<=Knoten.Size(); iI3++) 
 							{
 								if (Inz.ReadInz(iPos)==Knoten.readVektor(iI3))
 									bSet = FALSE;
@@ -938,7 +938,7 @@ inline Vektor CCalculate::PlastCalc()
 				// Anfügen der letzten Ersatzlast
 				for (iI1=1; iI1<=PlastLast.iLastNr; iI1++) 
 				{
-					iAnz = Knoten.iAnz + 1;
+					iAnz = Knoten.Size() + 1;
 					iKnNr  = (int) PlastLast.readLast(iI1, 1);
 					Knoten.addVektor(iKnNr);
 					dPl[0] = PlastLast.readLast(iI1, 2);

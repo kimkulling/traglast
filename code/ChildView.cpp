@@ -386,7 +386,7 @@ BOOL CChildView::DrawForce(double dScale)
 		for ( int iI=1; iI<=iLastNr; iI++ ) 
 		{
 			double dW[ 3 ];
-			const Core::i32 iNode = round(LastEingabe.readLast(iI, 1));
+			const Core::i32 iNode = Math::round(LastEingabe.readLast(iI, 1));
 			NodeStack::NodeDef node;
 			g_NodeStack.getNode( iNode, node );
 			const Core::d32 xPos = node.getPos( Node<Core::d32>::XPos );

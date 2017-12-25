@@ -5,8 +5,7 @@
 // Klasse		: VektorStack
 // Beschreibung	: Klasse zum Anlegen einer Vektor-Liste
 /////////////////////////////////////////////////////////////////////////////////////////////////
-class Vektor
-{
+class Vektor {
 public:
 	// Kostruktor
 	Vektor();
@@ -17,14 +16,16 @@ public:
 	// Returns number of entries
 	int Size();
 
+    bool isEmpty() const;
+
 	// Methode zum Belegen eines neuen Vektors mit Nullen
-	int DeclVektor(int iAnz);
+	void initVector(int iAnz);
 
 	// Methode zum Addieren eines neuen Wertes in die Liste
 	int addVektor(const double W);
 
 	// Methode zum Auslesen eines Eintrages aus der Liste
-	double readVektor(const int iPos) {return pVektor[iPos-1];};	
+	double readVektor(const int iPos);	
 
 	// Method for reading Entries, Val will be returned by parameter
 	int ReadVektor(int iIndex, double *pData);
@@ -66,19 +67,29 @@ public:
 	int InitVector(int iLower, int iUpper);
 
 private:
-	mutable double	dMaxV;    // Calculeted max of vector
-	mutable double	dMinV;    // Calculeted min of vector
-	BOOL	        m_bChanged; // Flag for calc
-	double         *pVektor;  // Pointer auf Array mit den Daten
-	double          dVector;  // 
+    mutable double	m_dMaxV;
+	mutable double	m_dMinV;  
+	bool	        m_changed;
+	double         *m_data;   
+	double          m_dVector; 
 	
 public:
-	int		iAnz;
-	double	dScaleX;
-	double	dScaleY;
+    int		m_size;
+	double	m_dScaleX;
+	double	m_dScaleY;
 
 private:
-	void SetChanged() {m_bChanged = TRUE;};
+	void SetChanged();
 };
+
+inline
+double Vektor::readVektor( const int iPos ) { 
+    return m_data[ iPos - 1 ];
+};
+
+inline
+void Vektor::SetChanged() { 
+    m_changed = true;
+}
 
 #endif
