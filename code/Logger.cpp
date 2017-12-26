@@ -24,138 +24,90 @@
 #include <cassert>
 #include <string>
 
-namespace Core
-{
+namespace Core {
 
-Logger *Logger::m_sLogger = NULL;
+Logger *Logger::m_sLogger = nullptr;
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Returns the only instance.
-Logger *Logger::get()
-{
-	if ( NULL == m_sLogger )
-		m_sLogger = new Logger;
+Logger *Logger::get() {
+    if ( nullptr == m_sLogger ) {
+        m_sLogger = new Logger;
+    }
 	return m_sLogger;
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Kills the only instance.
-void Logger::kill()
-{
-	if ( NULL != m_sLogger )
-	{
-		m_sLogger = NULL;
-		delete m_sLogger;
+void Logger::kill() {
+	if ( nullptr != m_sLogger ) {
+        delete m_sLogger;
+        m_sLogger = nullptr;
 	}
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Logs a debug message.
-void Logger::debug( const std::string &rMessage )
-{
-	std::string msg = std::string("Debug : ") + rMessage;
+void Logger::debug( const std::string &rMessage ) {
+	const std::string msg = std::string("Debug : ") + rMessage;
 	write( msg );
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Logs a debug message.
-void Logger::info( const std::string &rMessage )
-{
-	std::string msg = "Info  : " + rMessage;
+void Logger::info( const std::string &rMessage ) {
+	const std::string msg = "Info  : " + rMessage;
 	write( msg );
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Logs a warn message.
-void Logger::warn( const std::string &rMessage )
-{
-	std::string msg = "Warn  : " + rMessage;
+void Logger::warn( const std::string &rMessage ) {
+	const std::string msg = "Warn  : " + rMessage;
 	write( msg );
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Logs an error message.
-void Logger::error( const std::string &rMessage )
-{
-	std::string msg = "Error : " + rMessage;
+void Logger::error( const std::string &rMessage ) {
+	const std::string msg = "Error : " + rMessage;
 	write( msg );
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Logs a fatal error message.
-void Logger::fatal( const std::string &rMessage )
-{
-	std::string msg = "Fatal : " + rMessage;
+void Logger::fatal( const std::string &rMessage ) {
+	const std::string msg = "Fatal : " + rMessage;
 	write( msg );
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Logs a debug message.
-void Logger::attachStream( ILogStream *pStream )
-{
-	assert( NULL != pStream );
+void Logger::attachStream( ILogStream *pStream ) {
+    if ( nullptr == pStream ) {
+        return;
+    }
 
-	for ( std::vector<ILogStream*>::iterator it = m_LogStreams.begin();
-		it != m_LogStreams.end();
-		++it )
-	{
+	for ( std::vector<ILogStream*>::iterator it = m_LogStreams.begin(); it != m_LogStreams.end(); ++it ) {
 		if ( *it == pStream )
 			return;
 	}
 	m_LogStreams.push_back( pStream );
 }
-
-//----------------------------------------------------------------------------------------------------------------------
-//	Logs a debug message.
-void Logger::detatchStream( ILogStream *pStream )
-{
-	for ( std::vector<ILogStream*>::iterator it = m_LogStreams.begin();
-		it != m_LogStreams.end();
-		++it )
-	{
-		if ( *it == pStream )
-		{
+void Logger::detatchStream( ILogStream *pStream ) {
+    if ( nullptr == pStream ) {
+        return;
+    }
+    
+    for ( std::vector<ILogStream*>::iterator it = m_LogStreams.begin(); it != m_LogStreams.end(); ++it ) {
+		if ( *it == pStream ) {
 			it = m_LogStreams.erase( it );
 		}
 	}
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Write method.
-void Logger::write( const std::string &rMessage )
-{
-	for ( std::vector<ILogStream*>::iterator it = m_LogStreams.begin();
-		it != m_LogStreams.end();
-		++it )
-	{
-		if ( (*it)->isActive() )
-		{
+void Logger::write( const std::string &rMessage ) {
+	for ( std::vector<ILogStream*>::iterator it = m_LogStreams.begin(); it != m_LogStreams.end(); ++it ) {
+		if ( (*it)->isActive() ) {
 			std::string tmp = rMessage + ("\n");
 			(*it)->write( tmp );
 		}
 	}
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Constructor.
-Logger::Logger() :
-	m_LogStreams()
-{
+Logger::Logger() 
+: m_LogStreams() {
 	m_LogStreams.push_back( new DebugLogStream );
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-//	Destructor.
-Logger::~Logger()
-{
-	for ( std::vector<ILogStream*>::iterator it = m_LogStreams.begin();
-		it != m_LogStreams.end();
-		++it )
-	{
+Logger::~Logger() {
+	for ( std::vector<ILogStream*>::iterator it = m_LogStreams.begin(); it != m_LogStreams.end(); ++it ) {
 		delete *it;
 	}
 }
-
-//----------------------------------------------------------------------------------------------------------------------
 
 } // Namespace Core
