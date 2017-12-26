@@ -22,75 +22,60 @@
 #include "EnviromentServer.h"
 #include <cassert>
 
-namespace Core
-{
+namespace Core {
 
-EnviromentServer *EnviromentServer::m_sEnvServerInst = NULL;
+EnviromentServer *EnviromentServer::m_sEnvServerInst = nullptr;
 
-//----------------------------------------------------------------------------------------------------------------------
-EnviromentServer *EnviromentServer::create()
-{
+EnviromentServer *EnviromentServer::create() {
 	assert( NULL == m_sEnvServerInst );
-	m_sEnvServerInst = new EnviromentServer;
+    if ( nullptr == m_sEnvServerInst ) {
+        m_sEnvServerInst = new EnviromentServer;
+    }
 	return m_sEnvServerInst;
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-EnviromentServer *EnviromentServer::get()
-{
-	assert( m_sEnvServerInst != NULL );
+EnviromentServer *EnviromentServer::get() {
 	return m_sEnvServerInst;
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-void EnviromentServer::kill()
-{
-	assert( NULL != m_sEnvServerInst );
-	delete m_sEnvServerInst;
-	m_sEnvServerInst = NULL;
+void EnviromentServer::kill() {
+    if ( nullptr != m_sEnvServerInst ) {
+        delete m_sEnvServerInst;
+        m_sEnvServerInst = nullptr;
+    }
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-void EnviromentServer::setVariable( const std::string &rVariable, const std::string &rValue )
-{
-	assert( !rVariable.empty() );
-	assert( !rValue.empty() );
-
-	m_EnviromentMap[ rVariable ] = rValue;
+void EnviromentServer::setVariable( const std::string &variable, const std::string &value ) {
+    if ( variable.empty() || value.empty() ) {
+        return;
+    }
+	m_EnviromentMap[ variable ] = value;
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-bool EnviromentServer::hasValue( const std::string &rVariable ) const
-{
+bool EnviromentServer::hasValue( const std::string &rVariable ) const {
 	std::map<std::string, std::string>::const_iterator it = m_EnviromentMap.find( rVariable );
-	if ( m_EnviromentMap.end() == it )
-		return false;
+    if ( m_EnviromentMap.end() == it ) {
+        return false;
+    }
 	return true;
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-const std::string &EnviromentServer::getValue( const std::string &rVariable ) const
-{
+const std::string &EnviromentServer::getValue( const std::string &rVariable ) const {
 	const static std::string empty( "" );
 	std::map<std::string, std::string>::const_iterator it = m_EnviromentMap.find( rVariable );
-	if ( m_EnviromentMap.end() == it )
-		return empty;
-	return (*it).second;
+    if ( m_EnviromentMap.end() == it ) {
+        return empty;
+    }
+	return it->second;
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-EnviromentServer::EnviromentServer() :
-	m_EnviromentMap()
-{
+EnviromentServer::EnviromentServer() 
+: m_EnviromentMap() {
 	// empty
 }
 
-//----------------------------------------------------------------------------------------------------------------------
-EnviromentServer::~EnviromentServer()
-{
+EnviromentServer::~EnviromentServer() {
 	m_EnviromentMap.clear();
 }
-
-//----------------------------------------------------------------------------------------------------------------------
 
 } // Namespace Core
