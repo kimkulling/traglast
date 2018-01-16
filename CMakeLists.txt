@@ -16,6 +16,7 @@ SET( BIN_INSTALL_DIR "bin" CACHE PATH
 
 INCLUDE_DIRECTORIES(
     code/
+    3dparty/tinyxml/
 )
 
 link_directories(
@@ -52,17 +53,17 @@ elseif ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" )
 endif()
 
 SET ( tinyxml_src
-	contrib/tinyxml/tinystr.cpp  
-	contrib/tinyxml/tinystr.h  
-	contrib/tinyxml/tinyxml.cpp  
-	contrib/tinyxml/tinyxml.h  
-	contrib/tinyxml/tinyxmlerror.cpp  
-	contrib/tinyxml/tinyxmlparser.cpp  
+	3dparty/tinyxml/tinystr.cpp  
+	3dparty/tinyxml/tinystr.h  
+	3dparty/tinyxml/tinyxml.cpp  
+	3dparty/tinyxml/tinyxml.h  
+	3dparty/tinyxml/tinyxmlerror.cpp  
+	3dparty/tinyxml/tinyxmlparser.cpp  
 )
 
 SET ( traglast_src
-	#code/Ansicht.cpp
-	#code/Ansicht.h
+	code/Ansicht.cpp
+	code/Ansicht.h
 	code/Band.cpp
 	code/Band.h
 	code/BandOp.cpp
