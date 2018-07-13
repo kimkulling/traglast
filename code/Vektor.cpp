@@ -158,21 +158,21 @@ int Vektor::delVektor(int iPos) {
 // iPos			: Position des zu ersetzenden Wertes
 // dW			: Neuer Wert
 /////////////////////////////////////////////////////////////////////////////////////////////////
-int Vektor::setVektor(int iPos, double dW)
+bool Vektor::setVektor(int iPos, double dW)
 {
 	if ( m_data ==NULL)
-		return FALSE;
+		return false;
 	
 	m_changed = TRUE;
 	if ( m_size ==1)
 	{
 		m_dVector = dW;
-		return TRUE;
+		return true;
 	}
 	
     m_data[iPos-1] = dW;
 
-	return TRUE;
+	return true;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -297,10 +297,10 @@ double Vektor::Getmin(int iFG, int iArt)
 // iArt			: Art der Sortierung (1->Max/2->Mn)
 // Rückgabewert	: TRUE, wenn erfolgreich
 /////////////////////////////////////////////////////////////////////////////////////////////////
-BOOL Vektor::SortVektor(int iArt)
+bool Vektor::SortVektor(int iArt)
 {
 	int    iI1, iI2, iMin;
-	double dWert = 0;
+	double dWert = 0.0;
 
 	for (iI1=1; iI1<( m_size -1); iI1++)
 	{
@@ -324,7 +324,7 @@ BOOL Vektor::SortVektor(int iArt)
 		setVektor(iI1, dWert);
 	}
 
-	return TRUE;
+	return true;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -334,7 +334,7 @@ BOOL Vektor::SortVektor(int iArt)
 // lpLoadName	: Name der Eingabedatei
 // Rückgabewert	: TRUE, wenn erfolgreich
 /////////////////////////////////////////////////////////////////////////////////////////////////
-BOOL Vektor::LoadVektor(const char *lpLoadName)
+bool Vektor::LoadVektor(const char *lpLoadName)
 {
 	int iW, iI1;
 	double dW;
@@ -342,23 +342,20 @@ BOOL Vektor::LoadVektor(const char *lpLoadName)
 	ifstream datei(lpLoadName);
 
 	if (!datei)
-		return FALSE;
-	else 
+		return false;
+	datei >> iW;
+	if (iW>0) 
 	{
-		datei >> iW;
-		if (iW>0) 
+		for (iI1=1; iI1<=iW; iI1++) 
 		{
-			for (iI1=1; iI1<=iW; iI1++) 
-			{
-				datei >> iW;
-				datei >> dW;
-				addVektor(dW);
-			}
+			datei >> iW;
+			datei >> dW;
+			addVektor(dW);
 		}
-		datei.close();
-
-		return TRUE;
 	}
+	datei.close();
+
+	return true;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -369,7 +366,7 @@ BOOL Vektor::LoadVektor(const char *lpLoadName)
 // iAnz			: Anzahl der zu sichernen Werte
 // Rückgabewert	: TRUE, wenn erfolgreich
 /////////////////////////////////////////////////////////////////////////////////////////////////
-BOOL Vektor::SaveVektor(const char *lpSaveName, int iAnz)
+bool Vektor::SaveVektor(const char *lpSaveName, int iAnz)
 {
 	double	*pWork = m_data;
 	int		iI;
@@ -377,20 +374,18 @@ BOOL Vektor::SaveVektor(const char *lpSaveName, int iAnz)
 	ofstream Datei(lpSaveName);
 
 	if (!Datei)
-		return FALSE;
+		return false;
+	if (iAnz==0)
+		Datei << 0;
 	else {
-		if (iAnz==0)
-			Datei << 0;
-		else {
-			for (iI=0; iI<iAnz; iI++) {
-				Datei << (iI+1) << endl;
-				Datei << pWork[iI] << endl;
-			}
+		for (iI=0; iI<iAnz; iI++) {
+			Datei << (iI+1) << endl;
+			Datei << pWork[iI] << endl;
 		}
-		Datei.close();
-
-		return TRUE;
 	}
+	Datei.close();
+
+    return true;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -398,17 +393,17 @@ BOOL Vektor::SaveVektor(const char *lpSaveName, int iAnz)
 // Beschreibung	: Löscht die eingetragene Liste der Klasse
 // Rückgabewert	: TRUE, wenn erfolgreich
 /////////////////////////////////////////////////////////////////////////////////////////////////
-BOOL Vektor::DelList()
+bool Vektor::DelList()
 {
 	double *pIndex = m_data;
 
 	if (pIndex!=nullptr) {
-        m_data = NULL;
+        m_data = nullptr;
         m_size = 0;
-		return TRUE;
+		return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////

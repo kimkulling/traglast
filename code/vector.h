@@ -40,7 +40,7 @@ public:
 	int delVektor(int iPos);
 
 	// Methode zum Neusetzten eines Wertes in der Liste
-	BOOL setVektor(int pos, double w);
+	bool setVektor(int pos, double w);
 
 	// Method to set a incore block
 	int SetBlock(int iNum, int iStart, double *pBlock);
@@ -52,16 +52,16 @@ public:
 	double Getmax(int iFG, int iArt);
 	
 	// Methode zum Sortieren des Vektors
-	BOOL SortVektor(int iArt);
+	bool SortVektor(int iArt);
 
 	// Methode zum Laden einer Vektorliste
-	BOOL LoadVektor(const char *cLoad);
+    bool LoadVektor(const char *cLoad);
 
 	// Methode zum Speichern einer Vektorliste
-	BOOL SaveVektor(const char *cSave, int iAnz);
+    bool SaveVektor(const char *cSave, int iAnz);
 
 	// Methode zum Löschen der gesamten Liste
-	BOOL DelList(void);
+    bool DelList();
 
 	// Method to clear a vector
 	int InitVector(int iLower, int iUpper);
