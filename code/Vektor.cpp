@@ -43,7 +43,7 @@ void Vektor::initVector(int numItems )  {
 
     m_size = numItems;
     m_data = new double[ numItems ];
-	::memset( m_data, 0, sizeof(double) * numItems );
+    ::memset( m_data, 0, sizeof(double) * numItems );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,7 +63,7 @@ bool Vektor::isEmpty() const {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // Methode		: VektorStack::addVektor(double W, int Pos)
-// Beschreibung	: Fügt einen neuen Listeneintrag ans Ende des Stacks hinzu
+// Beschreibung	: FÃ¼gt einen neuen Listeneintrag ans Ende des Stacks hinzu
 // Parameter
 // dW					: Wert, der eingetragen wird
 // iPos					: POsiion in der Liste
@@ -153,7 +153,7 @@ int Vektor::delVektor(int iPos) {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // Methode		: VektorStack::setVektor(int iPos, double dW)
 // Beschreibung	: Ersetzt den Wert an der angegebenen Position in der Liste um den 
-//						übergebenen
+//						Ã¼bergebenen
 // Parameter
 // iPos			: Position des zu ersetzenden Wertes
 // dW			: Neuer Wert
@@ -200,7 +200,7 @@ int Vektor::SetBlock(int iNum, int iStart, double *pBlock)
 // Desc   : Methode, die die maximalen Werte aus der Liste ausliest
 // 
 // --> iFG  : Maximaler Freiheitsgrad der Knoten
-// --> iArt : 1, 2->Rückgabe nach FG; 3->Einfache Rückgabe
+// --> iArt : 1, 2->RÃ¼ckgabe nach FG; 3->Einfache RÃ¼ckgabe
 // <-- 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 double Vektor::Getmax(int iFG, int iArt)
@@ -249,8 +249,8 @@ double Vektor::Getmax(int iFG, int iArt)
 // Beschreibung	: Liest den minimalen Wert aus der Liste aus
 // Parameter
 // iFG			: Maximaler Freiheitsgrad eines Knotens
-// iArt			: Art der Rückgabe (1->sortiert nach FG; 2->Minimaler Wert nicht sortiert)
-// Rückgabewert	: Minimaler Wert aus der Liste
+// iArt			: Art der RÃ¼ckgabe (1->sortiert nach FG; 2->Minimaler Wert nicht sortiert)
+// RÃ¼ckgabewert	: Minimaler Wert aus der Liste
 /////////////////////////////////////////////////////////////////////////////////////////////////
 double Vektor::Getmin(int iFG, int iArt)
 {
@@ -295,7 +295,7 @@ double Vektor::Getmin(int iFG, int iArt)
 // Beschreibung	: Sortiert den Vektor auf- oder absteigend nach dem Selectionsort-Verfahren
 // Parameter
 // iArt			: Art der Sortierung (1->Max/2->Mn)
-// Rückgabewert	: TRUE, wenn erfolgreich
+// RÃ¼ckgabewert	: TRUE, wenn erfolgreich
 /////////////////////////////////////////////////////////////////////////////////////////////////
 bool Vektor::SortVektor(int iArt)
 {
@@ -329,10 +329,10 @@ bool Vektor::SortVektor(int iArt)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // Methode		: VektorStack::LoadVektor(const char *lpLoadName)
-// Beschreibung	: Lädt einen Vektoraus einer Datei
+// Beschreibung	: LÃ¤dt einen Vektoraus einer Datei
 // Parameter
 // lpLoadName	: Name der Eingabedatei
-// Rückgabewert	: TRUE, wenn erfolgreich
+// RÃ¼ckgabewert	: TRUE, wenn erfolgreich
 /////////////////////////////////////////////////////////////////////////////////////////////////
 bool Vektor::LoadVektor(const char *lpLoadName)
 {
@@ -364,7 +364,7 @@ bool Vektor::LoadVektor(const char *lpLoadName)
 // Parameter
 // lpSaveName	: Name der Ausgabe-Datei
 // iAnz			: Anzahl der zu sichernen Werte
-// Rückgabewert	: TRUE, wenn erfolgreich
+// RÃ¼ckgabewert	: TRUE, wenn erfolgreich
 /////////////////////////////////////////////////////////////////////////////////////////////////
 bool Vektor::SaveVektor(const char *lpSaveName, int iAnz)
 {
@@ -390,8 +390,8 @@ bool Vektor::SaveVektor(const char *lpSaveName, int iAnz)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // Methode		: VektorStack::DelList(void)
-// Beschreibung	: Löscht die eingetragene Liste der Klasse
-// Rückgabewert	: TRUE, wenn erfolgreich
+// Beschreibung	: LÃ¶scht die eingetragene Liste der Klasse
+// RÃ¼ckgabewert	: TRUE, wenn erfolgreich
 /////////////////////////////////////////////////////////////////////////////////////////////////
 bool Vektor::DelList()
 {
